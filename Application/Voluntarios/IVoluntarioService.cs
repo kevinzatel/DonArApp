@@ -10,5 +10,7 @@ namespace Application.Voluntarios
     {
         Task<List<Voluntario>> GetVoluntarios();
         Task<Voluntario> GetVoluntario(int id);
+        Task AddVoluntario(Voluntario voluntario);
+        Task AddVoluntarioMedico(VoluntarioMedico voluntarioMedico);
     }
 }

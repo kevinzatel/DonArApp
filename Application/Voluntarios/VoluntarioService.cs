@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +28,16 @@ namespace Application.Voluntarios
         {
             var voluntario = await _context.Voluntarios.FindAsync(id);
             return voluntario;
+        }
+
+        public async Task AddVoluntario(Voluntario voluntario)
+        {
+            await _context.Voluntarios.AddAsync(voluntario);
+        }
+
+        public async Task AddVoluntarioMedico(VoluntarioMedico voluntarioMedico)
+        {
+            await _context.Voluntarios.AddAsync(voluntarioMedico);
         }
     }
 }

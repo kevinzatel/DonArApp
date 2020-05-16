@@ -35,5 +35,19 @@ namespace API.Controllers
             var voluntario = await _voluntarioService.GetVoluntario(id);
             return Ok(voluntario);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> AddVoluntario(Voluntario voluntario)
+        {
+            await _voluntarioService.AddVoluntario(voluntario);
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddVoluntarioMedico(VoluntarioMedico voluntarioMedico)
+        {
+            await _voluntarioService.AddVoluntarioMedico(voluntarioMedico);
+            return Ok();
+        }
     }
 }
