@@ -34,7 +34,8 @@ namespace API
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddScoped<IVoluntarioService, VoluntarioService>();
+            services.AddScoped<IVoluntarioBasicoService, VoluntarioBasicoService>();
+            services.AddScoped<IVoluntarioMedicoService, VoluntarioMedicoService>();
 
             services.AddControllers();
 

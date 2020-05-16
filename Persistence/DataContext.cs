@@ -10,6 +10,7 @@ namespace Persistence
         {
         }
 
-        public DbSet<Voluntario> Voluntarios { get; set; }
+        public DbSet<VoluntarioBasico> VoluntariosBasicos { get; set; }
+        public DbSet<VoluntarioMedico> VoluntariosMedicos { get; set; }
     }
 }

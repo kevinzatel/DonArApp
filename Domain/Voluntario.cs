@@ -2,9 +2,12 @@
 
 namespace Domain
 {
-    public class Voluntario
+    public abstract class Voluntario
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Nombre { get; set; }
+        public int Dni { get; set; }
+        public string Telefono { get; set; }
+        public string Email { get; set; }
     }
 }
