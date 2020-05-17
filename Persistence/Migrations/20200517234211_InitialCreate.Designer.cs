@@ -8,7 +8,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200516191556_InitialCreate")]
+    [Migration("20200517234211_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,6 +22,9 @@ namespace Persistence.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Contrasena")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Dni")
                         .HasColumnType("INTEGER");
@@ -38,6 +41,9 @@ namespace Persistence.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Usuario")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("VoluntariosBasicos");
@@ -48,6 +54,9 @@ namespace Persistence.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Contrasena")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Dni")
                         .HasColumnType("INTEGER");
@@ -68,6 +77,9 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telefono")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Usuario")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

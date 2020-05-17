@@ -12,6 +12,8 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Usuario = table.Column<string>(nullable: true),
+                    Contrasena = table.Column<string>(nullable: true),
                     Nombre = table.Column<string>(nullable: true),
                     Dni = table.Column<int>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),
@@ -29,6 +31,8 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Usuario = table.Column<string>(nullable: true),
+                    Contrasena = table.Column<string>(nullable: true),
                     Nombre = table.Column<string>(nullable: true),
                     Dni = table.Column<int>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),

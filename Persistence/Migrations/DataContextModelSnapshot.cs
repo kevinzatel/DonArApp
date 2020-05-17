@@ -21,6 +21,9 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Contrasena")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("Dni")
                         .HasColumnType("INTEGER");
 
@@ -36,6 +39,9 @@ namespace Persistence.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Usuario")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("VoluntariosBasicos");
@@ -46,6 +52,9 @@ namespace Persistence.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Contrasena")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Dni")
                         .HasColumnType("INTEGER");
@@ -66,6 +75,9 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telefono")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Usuario")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

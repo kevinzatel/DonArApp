@@ -16,6 +16,8 @@ namespace Persistence
                 {
                     new VoluntarioBasico
                     {
+                        Usuario = "charly",
+                        Contrasena = "1234",
                         Nombre = "Charly Mendez ",
                         Dni = 38888888,
                         Telefono = "4444-4444",
@@ -24,6 +26,8 @@ namespace Persistence
                     },
                      new VoluntarioBasico
                     {
+                        Usuario = "jimmy",
+                        Contrasena = "1234",
                         Nombre = "Jimmy Newtron",
                         Dni = 39999999,
                         Telefono = "5555-5555",
@@ -42,6 +46,8 @@ namespace Persistence
                 {
                     new VoluntarioMedico
                     {
+                        Usuario = "johnny",
+                        Contrasena = "1234",
                         Nombre = "Johnny Bravo",
                         Dni = 40000000,
                         Telefono = "6666-6666",
@@ -52,7 +58,9 @@ namespace Persistence
                     },
                      new VoluntarioMedico
                     {
-                      Nombre = "Dexter",
+                        Usuario = "dexter",
+                        Contrasena = "1234",
+                        Nombre = "Dexter",
                         Dni = 41111111,
                         Telefono = "7777-7777",
                         Email = "laboratorios.dex@gmail.com",
