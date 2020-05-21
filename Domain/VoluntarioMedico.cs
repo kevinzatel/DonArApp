@@ -10,5 +10,7 @@ namespace Domain
         public EspecialidadEnum Especialidad { get; set; }
         public string Matricula { get; set; }
         public string Seguro { get; set; }
+        public int InicioJornada { get; set; }
+        public int FinJornada { get; set; }
     }
 }

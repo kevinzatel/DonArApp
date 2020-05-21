@@ -65,6 +65,12 @@ namespace Persistence.Migrations
                     b.Property<int>("Especialidad")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("FinJornada")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("InicioJornada")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Matricula")
                         .HasColumnType("TEXT");
 

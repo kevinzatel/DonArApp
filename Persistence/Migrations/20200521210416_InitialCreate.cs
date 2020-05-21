@@ -39,7 +39,9 @@ namespace Persistence.Migrations
                     Email = table.Column<string>(nullable: true),
                     Especialidad = table.Column<int>(nullable: false),
                     Matricula = table.Column<string>(nullable: true),
-                    Seguro = table.Column<string>(nullable: true)
+                    Seguro = table.Column<string>(nullable: true),
+                    InicioJornada = table.Column<int>(nullable: false),
+                    FinJornada = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

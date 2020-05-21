@@ -54,7 +54,9 @@ namespace Persistence
                         Email = "holanena@gmail.com",
                         Matricula = "1234",
                         Seguro = "5678",
-                        Especialidad = Domain.Enums.EspecialidadEnum.Especialidad1
+                        Especialidad = Domain.Enums.EspecialidadEnum.Especialidad1,
+                        InicioJornada = 9,
+                        FinJornada = 13
                     },
                      new VoluntarioMedico
                     {
@@ -66,7 +68,9 @@ namespace Persistence
                         Email = "laboratorios.dex@gmail.com",
                         Matricula = "4321",
                         Seguro = "8765",
-                        Especialidad = Domain.Enums.EspecialidadEnum.Especialidad2
+                        Especialidad = Domain.Enums.EspecialidadEnum.Especialidad2,
+                        InicioJornada = 15,
+                        FinJornada = 19
                     }
                 };
 

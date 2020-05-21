@@ -8,7 +8,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200517234211_InitialCreate")]
+    [Migration("20200521210416_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,6 +65,12 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Especialidad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("FinJornada")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("InicioJornada")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Matricula")
