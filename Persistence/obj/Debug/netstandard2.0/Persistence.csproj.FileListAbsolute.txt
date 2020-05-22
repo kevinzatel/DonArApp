@@ -10,3 +10,15 @@ C:\Users\Kevin Zatel\Desktop\DonArApp\Persistence\obj\Debug\netstandard2.0\Persi
 C:\Users\Kevin Zatel\Desktop\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.dll
 C:\Users\Kevin Zatel\Desktop\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.pdb
 C:\Users\Kevin Zatel\Desktop\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\bin\Debug\netstandard2.0\Persistence.dll
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\bin\Debug\netstandard2.0\Domain.dll
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\bin\Debug\netstandard2.0\Domain.pdb
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfoInputs.cache
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfo.cs
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.dll
+C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Persistence\obj\Debug\netstandard2.0\Persistence.pdb

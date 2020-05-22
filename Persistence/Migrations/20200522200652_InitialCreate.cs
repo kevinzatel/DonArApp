@@ -7,6 +7,26 @@ namespace Persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Pacientes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Usuario = table.Column<string>(nullable: true),
+                    Contrasena = table.Column<string>(nullable: true),
+                    Nombre = table.Column<string>(nullable: true),
+                    Dni = table.Column<int>(nullable: false),
+                    Telefono = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    Edad = table.Column<int>(nullable: false),
+                    Sintomas = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pacientes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "VoluntariosBasicos",
                 columns: table => new
                 {
@@ -51,6 +71,9 @@ namespace Persistence.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Pacientes");
+
             migrationBuilder.DropTable(
                 name: "VoluntariosBasicos");
 

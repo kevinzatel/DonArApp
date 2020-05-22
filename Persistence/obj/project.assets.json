@@ -1467,11 +1467,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\Persistence\\Persistence.csproj",
+      "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Persistence\\Persistence.csproj",
       "packagesPath": "C:\\Users\\Kevin Zatel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\Persistence\\obj\\",
+      "outputPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1490,8 +1490,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\Domain\\Domain.csproj"
+            "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj"
             }
           }
         }

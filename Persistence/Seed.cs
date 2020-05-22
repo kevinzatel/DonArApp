@@ -78,6 +78,26 @@ namespace Persistence
                 context.SaveChanges();
             }
 
+            if (!context.Pacientes.Any())
+            {
+                var pacientes = new List<Paciente>
+                    {
+                        new Paciente
+                        {
+                            Usuario = "un paciente",
+                            Contrasena = "1234",
+                            Nombre = "Bodeler",
+                            Dni = 42222222,
+                            Telefono = "8888-8888",
+                            Email = "la.moneda.falsa@gmail.com",
+                            Edad = 28,
+                            Sintomas = "Depresion y delirios"
+                        }
+                    };
+                context.Pacientes.AddRange(pacientes);
+                context.SaveChanges();
+            }
+
         }
     }
 }

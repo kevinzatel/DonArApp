@@ -7111,11 +7111,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\API\\API.csproj",
+      "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\API\\API.csproj",
       "packagesPath": "C:\\Users\\Kevin Zatel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\API\\obj\\",
+      "outputPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7134,8 +7134,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\DonArApp\\Application\\Application.csproj"
+            "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Application\\Application.csproj"
             }
           }
         }

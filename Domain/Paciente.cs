@@ -11,5 +11,6 @@ namespace Domain
         public string Telefono { get; set; }
         public string Email { get; set; }
         public int Edad { get; set; }
+        public string Sintomas {get;set;}
     }
 }
