@@ -37,6 +37,7 @@ namespace API
             services.AddScoped<IVoluntarioBasicoService, VoluntarioBasicoService>();
             services.AddScoped<IVoluntarioMedicoService, VoluntarioMedicoService>();
             services.AddScoped<IPacienteService, PacienteService>();
+            services.AddScoped<IEventoService, EventoService>();
 
             services.AddControllers();
 

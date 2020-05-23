@@ -19,7 +19,7 @@ namespace Persistence.Migrations
                     Telefono = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     Edad = table.Column<int>(nullable: false),
-                    Sintomas = table.Column<string>(nullable: true)
+                    HistorialClinico = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -67,10 +67,52 @@ namespace Persistence.Migrations
                 {
                     table.PrimaryKey("PK_VoluntariosMedicos", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Eventos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PacienteId = table.Column<int>(nullable: false),
+                    Estado = table.Column<int>(nullable: false),
+                    Sintomas = table.Column<string>(nullable: true),
+                    VoluntarioBasicoId = table.Column<int>(nullable: true),
+                    VoluntarioMedicoId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eventos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Eventos_VoluntariosBasicos_VoluntarioBasicoId",
+                        column: x => x.VoluntarioBasicoId,
+                        principalTable: "VoluntariosBasicos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Eventos_VoluntariosMedicos_VoluntarioMedicoId",
+                        column: x => x.VoluntarioMedicoId,
+                        principalTable: "VoluntariosMedicos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Eventos_VoluntarioBasicoId",
+                table: "Eventos",
+                column: "VoluntarioBasicoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Eventos_VoluntarioMedicoId",
+                table: "Eventos",
+                column: "VoluntarioMedicoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Eventos");
+
             migrationBuilder.DropTable(
                 name: "Pacientes");
 

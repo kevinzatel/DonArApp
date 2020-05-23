@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,16 @@ namespace Persistence
                         Dni = 38888888,
                         Telefono = "4444-4444",
                         Email = "charly.magico@gmail.com",
-                        Tarea = Domain.Enums.TareaEnum.Acompanamiento
+                        Tarea = TareaEnum.Acompanamiento,
+                        Eventos = new List<Evento>()
+                        {
+                            new Evento
+                            {
+                                PacienteId = 1,
+                                Estado = EstadoEventoEnum.CREADO,
+                                Sintomas = "Depresion y delirios"
+                            }
+                        }
                     },
                      new VoluntarioBasico
                     {
@@ -32,7 +42,33 @@ namespace Persistence
                         Dni = 39999999,
                         Telefono = "5555-5555",
                         Email = "elcabezon@gmail.com",
-                        Tarea = Domain.Enums.TareaEnum.Derivacion
+                        Tarea = TareaEnum.Derivacion,
+                        Eventos = new List<Evento>()
+                    },
+                      new VoluntarioBasico
+                    {
+                        Usuario = "saul",
+                        Contrasena = "1234",
+                        Nombre = "Saul Goodman",
+                        Dni = 39999999,
+                        Telefono = "5555-5555",
+                        Email = "bettercallsaul@gmail.com",
+                        Tarea = TareaEnum.Derivacion,
+                        Eventos = new List<Evento>()
+                        {
+                            new Evento
+                            {
+                                PacienteId = 1,
+                                Estado = EstadoEventoEnum.CREADO,
+                                Sintomas = "Depresion y delirios"
+                            },
+                            new Evento
+                            {
+                                PacienteId = 1,
+                                Estado = EstadoEventoEnum.CREADO,
+                                Sintomas = "Depresion y delirios"
+                            }
+                        }
                     }
                 };
 
@@ -90,8 +126,7 @@ namespace Persistence
                             Dni = 42222222,
                             Telefono = "8888-8888",
                             Email = "la.moneda.falsa@gmail.com",
-                            Edad = 28,
-                            Sintomas = "Depresion y delirios"
+                            Edad = 28
                         }
                     };
                 context.Pacientes.AddRange(pacientes);

@@ -11,5 +11,6 @@ namespace Application.Voluntarios
         Task<List<VoluntarioBasico>> List();
         Task<VoluntarioBasico> Get(int id);
         Task Add(VoluntarioBasico voluntarioBasico);
+        Task<int> ObtenerVoluntarioIdConMenosTareas();
     }
 }

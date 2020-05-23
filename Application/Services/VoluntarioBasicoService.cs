@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,12 @@ namespace Application.Voluntarios
         {
             await _context.VoluntariosBasicos.AddAsync(voluntarioBasico);
             _context.SaveChanges();
+        }
+
+        public async Task<int> ObtenerVoluntarioIdConMenosTareas()
+        {
+            var voluntario = _context.VoluntariosBasicos.OrderBy(v => v.Eventos.Count()).FirstOrDefault();
+            return voluntario.Id;
         }
     }
 }

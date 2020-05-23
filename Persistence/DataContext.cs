@@ -13,5 +13,6 @@ namespace Persistence
         public DbSet<VoluntarioBasico> VoluntariosBasicos { get; set; }
         public DbSet<VoluntarioMedico> VoluntariosMedicos { get; set; }
         public DbSet<Paciente> Pacientes { get; set; }
+        public DbSet<Evento> Eventos { get; set; }
     }
 }
