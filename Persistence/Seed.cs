@@ -25,14 +25,14 @@ namespace Persistence
                         Email = "charly.magico@gmail.com",
                         Tarea = TareaEnum.Acompanamiento,
                         Eventos = new List<Evento>()
-                        {
-                            new Evento
-                            {
-                                PacienteId = 1,
-                                Estado = EstadoEventoEnum.CREADO,
-                                Sintomas = "Depresion y delirios"
-                            }
-                        }
+                        //{
+                        //    new Evento
+                        //    {
+                        //        PacienteId = 1,
+                        //        Estado = EstadoEventoEnum.CREADO,
+                        //        Sintomas = "Depresion y delirios"
+                        //    }
+                        //}
                     },
                      new VoluntarioBasico
                     {
@@ -55,20 +55,20 @@ namespace Persistence
                         Email = "bettercallsaul@gmail.com",
                         Tarea = TareaEnum.Derivacion,
                         Eventos = new List<Evento>()
-                        {
-                            new Evento
-                            {
-                                PacienteId = 1,
-                                Estado = EstadoEventoEnum.CREADO,
-                                Sintomas = "Depresion y delirios"
-                            },
-                            new Evento
-                            {
-                                PacienteId = 1,
-                                Estado = EstadoEventoEnum.CREADO,
-                                Sintomas = "Depresion y delirios"
-                            }
-                        }
+                        //{
+                        //    new Evento
+                        //    {
+                        //        PacienteId = 1,
+                        //        Estado = EstadoEventoEnum.CREADO,
+                        //        Sintomas = "Depresion y delirios"
+                        //    },
+                        //    new Evento
+                        //    {
+                        //        PacienteId = 1,
+                        //        Estado = EstadoEventoEnum.CREADO,
+                        //        Sintomas = "Depresion y delirios"
+                        //    }
+                        //}
                     }
                 };
 
@@ -90,9 +90,10 @@ namespace Persistence
                         Email = "holanena@gmail.com",
                         Matricula = "1234",
                         Seguro = "5678",
-                        Especialidad = Domain.Enums.EspecialidadEnum.Especialidad1,
+                        Especialidad = EspecialidadEnum.Especialidad1,
                         InicioJornada = 9,
-                        FinJornada = 13
+                        FinJornada = 13,
+                        Eventos = new List<Evento>()
                     },
                      new VoluntarioMedico
                     {
@@ -106,7 +107,8 @@ namespace Persistence
                         Seguro = "8765",
                         Especialidad = Domain.Enums.EspecialidadEnum.Especialidad2,
                         InicioJornada = 15,
-                        FinJornada = 19
+                        FinJornada = 19,
+                        Eventos = new List<Evento>()
                     }
                 };
 

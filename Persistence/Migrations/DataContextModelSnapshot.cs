@@ -22,6 +22,9 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("Especialidad")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Estado")
                         .HasColumnType("INTEGER");
 

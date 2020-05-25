@@ -27,5 +27,13 @@ namespace API.Controllers
             var eventoCreado = await _eventoService.Add(evento);
             return Ok(eventoCreado);
         }
+
+        [HttpPut]
+        public async Task<ActionResult<Evento>> Update(Evento evento)
+        {
+            var eventoCreado = await _eventoService.Update(evento);
+            return Ok(eventoCreado);
+        }
+
     }
 }

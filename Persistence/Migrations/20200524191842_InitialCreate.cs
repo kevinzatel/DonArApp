@@ -77,6 +77,7 @@ namespace Persistence.Migrations
                     PacienteId = table.Column<int>(nullable: false),
                     Estado = table.Column<int>(nullable: false),
                     Sintomas = table.Column<string>(nullable: true),
+                    Especialidad = table.Column<int>(nullable: true),
                     VoluntarioBasicoId = table.Column<int>(nullable: true),
                     VoluntarioMedicoId = table.Column<int>(nullable: true)
                 },
