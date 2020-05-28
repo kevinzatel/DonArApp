@@ -23,6 +23,12 @@ namespace Application.Voluntarios
             _voluntarioMedicoService = voluntarioMedicoService;
         }
 
+        public async Task<List<Evento>> List()
+        {
+            var eventos = await _context.Eventos.ToListAsync();
+            return eventos;
+        }
+
         public async Task<Evento> Add(Evento evento)
         {
             var voluntarioId = await _voluntarioBasicoService.ObtenerVoluntarioIdConMenosTareas();

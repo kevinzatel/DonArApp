@@ -21,6 +21,13 @@ namespace API.Controllers
             _eventoService = eventoService;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<List<Evento>>> List()
+        {
+            var eventos = await _eventoService.List();
+            return Ok(eventos);
+        }
+
         [HttpPost]
         public async Task<ActionResult<Evento>> Add(Evento evento)
         {
