@@ -17,58 +17,45 @@ namespace Persistence
                 {
                     new VoluntarioBasico
                     {
-                        Usuario = "charly",
-                        Contrasena = "1234",
-                        Nombre = "Charly Mendez ",
+                        Nombre = "Charly",
+                        Apellido = "Mendez",
+                        Edad = 20,
+                        Genero = GeneroEnum.Masculino,
+                        NacionalidadId = 1,
+                        TipoUsuarioId = 2,
+                        TerminosyCondiciones = true,
                         Dni = 38888888,
                         Telefono = "4444-4444",
                         Email = "charly.magico@gmail.com",
-                        Tarea = TareaEnum.Acompanamiento,
                         Eventos = new List<Evento>()
-                        //{
-                        //    new Evento
-                        //    {
-                        //        PacienteId = 1,
-                        //        Estado = EstadoEventoEnum.CREADO,
-                        //        Sintomas = "Depresion y delirios"
-                        //    }
-                        //}
                     },
                      new VoluntarioBasico
                     {
-                        Usuario = "jimmy",
-                        Contrasena = "1234",
-                        Nombre = "Jimmy Newtron",
+                        Nombre = "Jimmy",
+                        Apellido = "Newtron",
+                        Edad = 12,
+                        Genero = GeneroEnum.Masculino,
+                        NacionalidadId = 1,
+                        TipoUsuarioId = 2,
+                        TerminosyCondiciones = true,
                         Dni = 39999999,
                         Telefono = "5555-5555",
                         Email = "elcabezon@gmail.com",
-                        Tarea = TareaEnum.Derivacion,
                         Eventos = new List<Evento>()
                     },
                       new VoluntarioBasico
                     {
-                        Usuario = "saul",
-                        Contrasena = "1234",
-                        Nombre = "Saul Goodman",
+                        Nombre = "Saul",
+                        Apellido = "Goodman",
+                        Edad = 58,
+                        Genero = GeneroEnum.Masculino,
+                        NacionalidadId = 1,
+                        TipoUsuarioId = 2,
+                        TerminosyCondiciones = true,
                         Dni = 39999999,
                         Telefono = "5555-5555",
                         Email = "bettercallsaul@gmail.com",
-                        Tarea = TareaEnum.Derivacion,
                         Eventos = new List<Evento>()
-                        //{
-                        //    new Evento
-                        //    {
-                        //        PacienteId = 1,
-                        //        Estado = EstadoEventoEnum.CREADO,
-                        //        Sintomas = "Depresion y delirios"
-                        //    },
-                        //    new Evento
-                        //    {
-                        //        PacienteId = 1,
-                        //        Estado = EstadoEventoEnum.CREADO,
-                        //        Sintomas = "Depresion y delirios"
-                        //    }
-                        //}
                     }
                 };
 
@@ -82,32 +69,40 @@ namespace Persistence
                 {
                     new VoluntarioMedico
                     {
-                        Usuario = "johnny",
-                        Contrasena = "1234",
-                        Nombre = "Johnny Bravo",
+                        Nombre = "Johnny",
+                        Apellido = "Bravo",
+                        Edad = 18,
+                        Genero = GeneroEnum.Masculino,
+                        NacionalidadId = 1,
+                        TipoUsuarioId = 3,
+                        TerminosyCondiciones = true,
                         Dni = 40000000,
                         Telefono = "6666-6666",
                         Email = "holanena@gmail.com",
                         Matricula = "1234",
                         Seguro = "5678",
-                        Especialidad = EspecialidadEnum.Especialidad1,
-                        InicioJornada = 9,
-                        FinJornada = 13,
+                        EspecialidadId = 1,
+                        InicioJornada = "9:00:00",
+                        FinJornada = "13:00:00",
                         Eventos = new List<Evento>()
                     },
                      new VoluntarioMedico
                     {
-                        Usuario = "dexter",
-                        Contrasena = "1234",
-                        Nombre = "Dexter",
+                        Nombre = "Oscar",
+                        Apellido = "Wilde",
+                        Edad = 48,
+                        Genero = GeneroEnum.Masculino,
+                        NacionalidadId = 2,
+                        TipoUsuarioId = 3,
+                        TerminosyCondiciones = true,
                         Dni = 41111111,
                         Telefono = "7777-7777",
                         Email = "laboratorios.dex@gmail.com",
                         Matricula = "4321",
                         Seguro = "8765",
-                        Especialidad = Domain.Enums.EspecialidadEnum.Especialidad2,
-                        InicioJornada = 15,
-                        FinJornada = 19,
+                        EspecialidadId = 2,
+                        InicioJornada = "13:00:00",
+                        FinJornada = "19:00:00",
                         Eventos = new List<Evento>()
                     }
                 };
@@ -122,18 +117,103 @@ namespace Persistence
                     {
                         new Paciente
                         {
-                            Usuario = "un paciente",
-                            Contrasena = "1234",
-                            Nombre = "Bodeler",
+                            Nombre = "Charles",
+                            Apellido = "Bodeler",
+                            Genero = GeneroEnum.Masculino,
                             Dni = 42222222,
                             Telefono = "8888-8888",
                             Email = "la.moneda.falsa@gmail.com",
-                            Edad = 28
+                            Edad = 28,
+                            NacionalidadId = 1,
+                            TerminosyCondiciones = true,
+                            TipoUsuarioId = 1,
+                            HistorialClinico = "historial clinico"
+                            
                         }
                     };
                 context.Pacientes.AddRange(pacientes);
                 context.SaveChanges();
             }
+
+            if (!context.TiposUsuarios.Any())
+            {
+                var tiposUsuarios = new List<TipoUsuario>
+                    {
+                        new TipoUsuario
+                        {
+                            Id= 1,
+                            Nombre = "Paciente"
+                        },
+                        new TipoUsuario
+                        {
+                            Id= 2,
+                            Nombre = "Voluntario Basico"
+                        },
+                        new TipoUsuario
+                        {
+                            Id= 3,
+                            Nombre = "Voluntario Medico"
+                        },
+                        new TipoUsuario
+                        {
+                            Id= 4,
+                            Nombre = "Voluntario Asociacion"
+                        },
+                    };
+                context.TiposUsuarios.AddRange(tiposUsuarios);
+                context.SaveChanges();
+            }
+
+            if (!context.Especialidades.Any())
+            {
+                var especialidades = new List<Especialidad>
+                    {
+                        new Especialidad
+                        {
+                            Nombre = "ATENCION PRIMARIA"
+                        },
+                        new Especialidad
+                        {
+                            Nombre = "CARDIOLOGIA"
+                        },
+                        new Especialidad
+                        {
+                            Nombre = "CIRUGÍA"
+                        },
+                        new Especialidad
+                        {
+                            Nombre = "CLÍNICA"
+                        },
+                    };
+                context.Especialidades.AddRange(especialidades);
+                context.SaveChanges();
+            }
+
+            if (!context.Nacionalidades.Any())
+            {
+                var nacionalidades = new List<Nacionalidad>
+                    {
+                        new Nacionalidad
+                        {
+                            Nombre = "Argentina"
+                        },
+                        new Nacionalidad
+                        {
+                            Nombre = "Holanda"
+                        },
+                        new Nacionalidad
+                        {
+                            Nombre = "Turquia"
+                        },
+                        new Nacionalidad
+                        {
+                            Nombre = "Nigeria"
+                        },
+                    };
+                context.Nacionalidades.AddRange(nacionalidades);
+                context.SaveChanges();
+            }
+
 
         }
     }

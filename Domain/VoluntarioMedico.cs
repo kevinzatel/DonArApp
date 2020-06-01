@@ -7,10 +7,10 @@ namespace Domain
 {
     public class VoluntarioMedico : Voluntario
     {
-        public EspecialidadEnum Especialidad { get; set; }
+        public virtual int EspecialidadId { get; set; }
         public string Matricula { get; set; }
         public string Seguro { get; set; }
-        public int InicioJornada { get; set; }
-        public int FinJornada { get; set; }
+        public string InicioJornada { get; set; }
+        public string FinJornada { get; set; }
     }
 }

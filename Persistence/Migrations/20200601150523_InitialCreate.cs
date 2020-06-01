@@ -7,18 +7,47 @@ namespace Persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Especialidades",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Especialidades", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Nacionalidades",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Nacionalidades", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Pacientes",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Usuario = table.Column<string>(nullable: true),
-                    Contrasena = table.Column<string>(nullable: true),
-                    Nombre = table.Column<string>(nullable: true),
-                    Dni = table.Column<int>(nullable: false),
-                    Telefono = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
+                    TipoUsuarioId = table.Column<int>(nullable: false),
+                    Genero = table.Column<int>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true),
+                    Apellido = table.Column<string>(nullable: true),
+                    Dni = table.Column<int>(nullable: false),
                     Edad = table.Column<int>(nullable: false),
+                    Telefono = table.Column<string>(nullable: true),
+                    NacionalidadId = table.Column<int>(nullable: false),
+                    TerminosyCondiciones = table.Column<bool>(nullable: false),
                     HistorialClinico = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -27,18 +56,34 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TiposUsuarios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TiposUsuarios", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "VoluntariosBasicos",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Usuario = table.Column<string>(nullable: true),
-                    Contrasena = table.Column<string>(nullable: true),
-                    Nombre = table.Column<string>(nullable: true),
-                    Dni = table.Column<int>(nullable: false),
-                    Telefono = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    Tarea = table.Column<int>(nullable: false)
+                    TipoUsuarioId = table.Column<int>(nullable: false),
+                    Genero = table.Column<int>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true),
+                    Apellido = table.Column<string>(nullable: true),
+                    Dni = table.Column<int>(nullable: false),
+                    Edad = table.Column<int>(nullable: false),
+                    Telefono = table.Column<string>(nullable: true),
+                    NacionalidadId = table.Column<int>(nullable: false),
+                    TerminosyCondiciones = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,17 +96,21 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Usuario = table.Column<string>(nullable: true),
-                    Contrasena = table.Column<string>(nullable: true),
-                    Nombre = table.Column<string>(nullable: true),
-                    Dni = table.Column<int>(nullable: false),
-                    Telefono = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    Especialidad = table.Column<int>(nullable: false),
+                    TipoUsuarioId = table.Column<int>(nullable: false),
+                    Genero = table.Column<int>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true),
+                    Apellido = table.Column<string>(nullable: true),
+                    Dni = table.Column<int>(nullable: false),
+                    Edad = table.Column<int>(nullable: false),
+                    Telefono = table.Column<string>(nullable: true),
+                    NacionalidadId = table.Column<int>(nullable: false),
+                    TerminosyCondiciones = table.Column<bool>(nullable: false),
+                    EspecialidadId = table.Column<int>(nullable: false),
                     Matricula = table.Column<string>(nullable: true),
                     Seguro = table.Column<string>(nullable: true),
-                    InicioJornada = table.Column<int>(nullable: false),
-                    FinJornada = table.Column<int>(nullable: false)
+                    InicioJornada = table.Column<string>(nullable: true),
+                    FinJornada = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -77,7 +126,9 @@ namespace Persistence.Migrations
                     PacienteId = table.Column<int>(nullable: false),
                     Estado = table.Column<int>(nullable: false),
                     Sintomas = table.Column<string>(nullable: true),
-                    Especialidad = table.Column<int>(nullable: true),
+                    Fecha = table.Column<string>(nullable: true),
+                    Seguimiento = table.Column<bool>(nullable: false),
+                    EspecialidadId = table.Column<int>(nullable: true),
                     VoluntarioBasicoId = table.Column<int>(nullable: true),
                     VoluntarioMedicoId = table.Column<int>(nullable: true)
                 },
@@ -112,10 +163,19 @@ namespace Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Especialidades");
+
+            migrationBuilder.DropTable(
                 name: "Eventos");
 
             migrationBuilder.DropTable(
+                name: "Nacionalidades");
+
+            migrationBuilder.DropTable(
                 name: "Pacientes");
+
+            migrationBuilder.DropTable(
+                name: "TiposUsuarios");
 
             migrationBuilder.DropTable(
                 name: "VoluntariosBasicos");

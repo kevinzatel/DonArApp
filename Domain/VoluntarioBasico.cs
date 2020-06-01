@@ -7,6 +7,5 @@ namespace Domain
 {
     public class VoluntarioBasico : Voluntario
     {
-        public TareaEnum Tarea { get; set; }
     }
 }

@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Domain.Enums
 {
-    public enum TareaEnum
+    public enum GeneroEnum
     {
-        Acompanamiento,
-        Derivacion
+        Femenino,
+        Masculino,
+        Tansgenero
     }
 }

@@ -12,7 +12,9 @@ namespace Domain
         public virtual int PacienteId { get; set; }
         public EstadoEventoEnum Estado { get; set; }
         public string Sintomas { get; set; }
-        public EspecialidadEnum? Especialidad { get; set; }
+        public string Fecha { get; set; }
+        public bool Seguimiento { get; set; }
+        public virtual int? EspecialidadId { get; set; }
         public virtual int? VoluntarioBasicoId { get; set; }
         public virtual int? VoluntarioMedicoId { get; set; }
     }

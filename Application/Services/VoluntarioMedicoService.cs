@@ -38,13 +38,21 @@ namespace Application.Voluntarios
             _context.SaveChanges();
         }
 
-        public async Task<int> ObtenerMedicoDisponible(EspecialidadEnum? especialidad)
+        public async Task<int> ObtenerMedicoDisponible(int especialidadId)
         {
-            var voluntariosDisponibles = _context.VoluntariosMedicos.Where(v => v.Especialidad == especialidad && v.InicioJornada <= DateTime.Now.Hour && v.FinJornada >= DateTime.Now.Hour).ToList();
-            if(voluntariosDisponibles.Count() > 0)
+            var timeFfDay = DateTime.Now.TimeOfDay;
+            var voluntariosDisponibles = new List<VoluntarioMedico>();
+            var voluntariosConEspecialidad = _context.VoluntariosMedicos.Where(v => v.EspecialidadId == especialidadId).ToList();
+            foreach (var v in voluntariosConEspecialidad)
             {
-            var voluntarioConMenosTareas = voluntariosDisponibles.OrderBy(v => getEventos(v.Id).Count()).FirstOrDefault();
-            return voluntarioConMenosTareas.Id;
+                if(TimeSpan.Parse(v.InicioJornada) <= timeFfDay && TimeSpan.Parse(v.FinJornada) >= timeFfDay) { 
+                    voluntariosDisponibles.Add(v);
+                }
+            }
+            if (voluntariosDisponibles.Count() > 0)
+            {
+                var voluntarioConMenosTareas = voluntariosDisponibles.OrderBy(v => getEventos(v.Id).Count()).FirstOrDefault();
+                return voluntarioConMenosTareas.Id;
             }
             return -1;
         }

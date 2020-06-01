@@ -12,6 +12,6 @@ namespace Application.Voluntarios
         Task<List<VoluntarioMedico>> List();
         Task<VoluntarioMedico> Get(int id);
         Task Add(VoluntarioMedico voluntarioMedico);
-        Task<int> ObtenerMedicoDisponible(EspecialidadEnum? especialidad);
+        Task<int> ObtenerMedicoDisponible(int especialidadId);
     }
 }
