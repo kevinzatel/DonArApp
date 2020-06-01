@@ -28,6 +28,13 @@ namespace API.Controllers
             return Ok(eventos);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosByVoluntarioId(int id)
+        {
+            var eventos = await _eventoService.ListEventosByVoluntarioId(id);
+            return Ok(eventos);
+        }
+
         [HttpPost]
         public async Task<ActionResult<Evento>> Add(Evento evento)
         {
