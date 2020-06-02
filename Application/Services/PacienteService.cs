@@ -35,5 +35,11 @@ namespace Application.Voluntarios
             await _context.Pacientes.AddAsync(paciente);
             _context.SaveChanges();
         }
+
+        public async Task<Paciente> Get(string correo) 
+        {
+            var paciente = await _context.Pacientes.FirstOrDefaultAsync(x=>x.Email.Equals(correo));
+            return paciente;
+        }
     }
 }

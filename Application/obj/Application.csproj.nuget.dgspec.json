@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Application\\Application.csproj": {}
+    "C:\\Users\\juven\\source\\repos\\DonArApp\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Application\\Application.csproj": {
+    "C:\\Users\\juven\\source\\repos\\DonArApp\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\juven\\source\\repos\\DonArApp\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Kevin Zatel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Application\\obj\\",
+        "projectPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\juven\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kevin Zatel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\juven\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,11 +30,11 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj"
+              "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Persistence\\Persistence.csproj"
+              "C:\\Users\\juven\\source\\repos\\DonArApp\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -69,20 +69,20 @@
         }
       }
     },
-    "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj": {
+    "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Kevin Zatel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\juven\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kevin Zatel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\juven\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -127,20 +127,20 @@
         }
       }
     },
-    "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\juven\\source\\repos\\DonArApp\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\juven\\source\\repos\\DonArApp\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\Kevin Zatel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Persistence\\obj\\",
+        "projectPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\juven\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kevin Zatel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\juven\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -153,8 +153,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj"
+              "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\Domain.csproj"
               }
             }
           }

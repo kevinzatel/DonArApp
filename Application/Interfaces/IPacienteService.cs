@@ -10,6 +10,7 @@ namespace Application.Voluntarios
     {
         Task<List<Paciente>> List();
         Task<Paciente> Get(int id);
+        Task<Paciente> Get(string correo);
         Task Add(Paciente paciente);
     }
 }

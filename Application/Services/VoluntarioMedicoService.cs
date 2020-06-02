@@ -61,5 +61,11 @@ namespace Application.Voluntarios
         {
             return _context.Eventos.Where(e => e.VoluntarioMedicoId == voluntarioId).ToList();
         }
+
+        public async Task<VoluntarioMedico> Get(string correo)
+        {
+            var voluntario = await _context.VoluntariosMedicos.FirstOrDefaultAsync(x => x.Email.Equals(correo));
+            return voluntario;
+        }
     }
 }

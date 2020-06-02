@@ -7105,23 +7105,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kevin Zatel\\.nuget\\packages\\": {},
+    "C:\\Users\\juven\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\juven\\source\\repos\\DonArApp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Kevin Zatel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\API\\obj\\",
+      "projectPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\juven\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kevin Zatel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\juven\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7134,8 +7134,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Application\\Application.csproj"
+            "C:\\Users\\juven\\source\\repos\\DonArApp\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Application\\Application.csproj"
             }
           }
         }

@@ -180,23 +180,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kevin Zatel\\.nuget\\packages\\": {},
+    "C:\\Users\\juven\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\Kevin Zatel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kevin Zatel\\Desktop\\Proyecto Final\\DonArApp\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\juven\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\juven\\source\\repos\\DonArApp\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kevin Zatel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\juven\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

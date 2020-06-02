@@ -16,3 +16,11 @@ C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Domain\obj\Debug\netstandar
 C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Domain\obj\Debug\netstandard2.0\Domain.dll
 C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Domain\obj\Debug\netstandard2.0\Domain.pdb
 C:\Users\Kevin Zatel\Desktop\Proyecto Final\DonArApp\Domain\obj\Debug\netstandard2.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\juven\source\repos\DonArApp\Domain\bin\Debug\netstandard2.0\Domain.deps.json
+C:\Users\juven\source\repos\DonArApp\Domain\bin\Debug\netstandard2.0\Domain.dll
+C:\Users\juven\source\repos\DonArApp\Domain\bin\Debug\netstandard2.0\Domain.pdb
+C:\Users\juven\source\repos\DonArApp\Domain\obj\Debug\netstandard2.0\Domain.csprojAssemblyReference.cache
+C:\Users\juven\source\repos\DonArApp\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
+C:\Users\juven\source\repos\DonArApp\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
+C:\Users\juven\source\repos\DonArApp\Domain\obj\Debug\netstandard2.0\Domain.dll
+C:\Users\juven\source\repos\DonArApp\Domain\obj\Debug\netstandard2.0\Domain.pdb

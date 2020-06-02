@@ -42,5 +42,11 @@ namespace Application.Voluntarios
             var voluntario = _context.VoluntariosBasicos.OrderBy(v => v.Eventos.Count()).FirstOrDefault();
             return voluntario.Id;
         }
+
+        public async Task<VoluntarioBasico> Get(string correo)
+        {
+            var voluntario = await _context.VoluntariosBasicos.FirstOrDefaultAsync(x => x.Email.Equals(correo));
+            return voluntario;
+        }
     }
 }
