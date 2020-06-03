@@ -8,6 +8,7 @@ namespace Application.Voluntarios
 {
     public interface IEventoService
     {
+        Task<Evento> Get(int id);
         Task<List<Evento>> List();
         Task<List<Evento>> ListEventosByVoluntarioId(int id);
         Task<Evento> Add(Evento evento);

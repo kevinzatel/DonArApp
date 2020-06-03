@@ -24,6 +24,12 @@ namespace Application.Voluntarios
             _voluntarioMedicoService = voluntarioMedicoService;
         }
 
+        public async Task<Evento> Get(int id)
+        {
+            var eventos = await _context.Eventos.FindAsync(id);
+            return eventos;
+        }
+
         public async Task<List<Evento>> List()
         {
             var eventos = await _context.Eventos.ToListAsync();

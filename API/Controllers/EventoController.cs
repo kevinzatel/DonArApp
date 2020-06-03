@@ -29,6 +29,13 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
+        public async Task<ActionResult<List<Evento>>> Get(int id)
+        {
+            var evento = await _eventoService.Get(id);
+            return Ok(evento);
+        }
+
+        [Route("eventosporvoluntario/{id}")]
         public async Task<ActionResult<List<Evento>>> ListEventosByVoluntarioId(int id)
         {
             var eventos = await _eventoService.ListEventosByVoluntarioId(id);

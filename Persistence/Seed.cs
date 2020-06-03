@@ -214,6 +214,22 @@ namespace Persistence
                 context.SaveChanges();
             }
 
+            if (!context.Eventos.Any())
+            {
+                var eventos = new List<Evento>
+                    {
+                        new Evento
+                        {
+                            PacienteId = 1,
+                            Estado = EstadoEventoEnum.CREADO,
+                            Fecha = "1/1/2020",
+                            Seguimiento = true,
+                            Sintomas = "unos sintomas"
+                        }
+                    };
+                context.Eventos.AddRange(eventos);
+                context.SaveChanges();
+            }
 
         }
     }
