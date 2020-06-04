@@ -40,22 +40,29 @@ namespace Application.Voluntarios
 
         public async Task<int> ObtenerMedicoDisponible(int especialidadId)
         {
-            var timeFfDay = DateTime.Now.TimeOfDay;
+            var timeOfDay = DateTime.Now.TimeOfDay;
+            var inicioDeJornada = new TimeSpan(9, 0, 0);
+            var finDeJornada = new TimeSpan(19, 0, 0);
             var voluntariosDisponibles = new List<VoluntarioMedico>();
             var voluntariosConEspecialidad = _context.VoluntariosMedicos.Where(v => v.EspecialidadId == especialidadId).ToList();
-            foreach (var v in voluntariosConEspecialidad)
+            if (voluntariosConEspecialidad.Count == 0) throw new Exception("La base de datos no cuenta con medicos de esta especialidad");
+            while (voluntariosDisponibles.Count == 0)
             {
-                if(TimeSpan.Parse(v.InicioJornada) <= timeFfDay && TimeSpan.Parse(v.FinJornada) >= timeFfDay) { 
-                    voluntariosDisponibles.Add(v);
+                foreach (var v in voluntariosConEspecialidad)
+                {
+                    if (TimeSpan.Parse(v.InicioJornada) <= timeOfDay && TimeSpan.Parse(v.FinJornada) > timeOfDay)
+                    {
+                        voluntariosDisponibles.Add(v);
+                    }
+                }
+                if (voluntariosDisponibles.Count() == 0)
+                {
+                    timeOfDay = timeOfDay < finDeJornada ? timeOfDay.Add(TimeSpan.FromMinutes(30)) : timeOfDay = inicioDeJornada;
                 }
             }
-            if (voluntariosDisponibles.Count() > 0)
-            {
-                var voluntarioConMenosTareas = voluntariosDisponibles.OrderBy(v => getEventos(v.Id).Count()).FirstOrDefault();
-                return voluntarioConMenosTareas.Id;
-            }
 
-            return -1;
+            var voluntarioConMenosTareas = voluntariosDisponibles.OrderBy(v => getEventos(v.Id).Count()).FirstOrDefault();
+            return voluntarioConMenosTareas.Id;
         }
 
         private List<Evento> getEventos(int voluntarioId)
