@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Application.Dto;
+using Domain;
 using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -16,24 +17,61 @@ namespace Application.Voluntarios
         private readonly DataContext _context;
         private readonly IVoluntarioBasicoService _voluntarioBasicoService;
         private readonly IVoluntarioMedicoService _voluntarioMedicoService;
+        private readonly IPacienteService _pacienteService;
 
-        public EventoService(DataContext context, IVoluntarioBasicoService voluntarioBasicoService, IVoluntarioMedicoService voluntarioMedicoService)
+        public EventoService(DataContext context, IVoluntarioBasicoService voluntarioBasicoService, IVoluntarioMedicoService voluntarioMedicoService, IPacienteService pacienteService)
         {
             _context = context;
             _voluntarioBasicoService = voluntarioBasicoService;
             _voluntarioMedicoService = voluntarioMedicoService;
+            _pacienteService = pacienteService;
         }
 
         public async Task<Evento> Get(int id)
         {
-            var eventos = await _context.Eventos.FindAsync(id);
-            return eventos;
+            var evento = await _context.Eventos.FindAsync(id);
+            return evento;
+        }
+
+        public async Task<EventoDto> GetDto(int id)
+        {
+
+           var evento = await Get(id);
+            if (evento != null)
+            {
+                var paciente = await _pacienteService.Get(evento.PacienteId);
+                var voluntarioMedicoId = evento.VoluntarioMedicoId ?? -1;
+                var medico = voluntarioMedicoId != -1 ? await _voluntarioMedicoService.Get(voluntarioMedicoId) : null;
+                var eventoDto = new EventoDto
+                {
+                    Id = evento.Id,
+                    Fecha = evento.Fecha,
+                    NombrePaciente = paciente.Nombre,
+                    ApellidoPaciente = paciente.Apellido,
+                    NombreMedico = medico != null ? medico.Nombre : null,
+                    ApellidoMedico = medico != null ? medico.Apellido : null
+                };
+            return eventoDto;
+            }
+            return null;
         }
 
         public async Task<List<Evento>> List()
         {
             var eventos = await _context.Eventos.ToListAsync();
             return eventos;
+        }
+
+        public async Task<List<EventoDto>> ListDto()
+        {
+            var eventosDto = new List<EventoDto>();
+            var eventos = await List();
+            foreach (var evento in eventos)
+            {
+                var eventoDto = await GetDto(evento.Id);
+                eventosDto.Add(eventoDto);
+            }
+            return eventosDto;
         }
 
         public async Task<List<Evento>> ListEventosByVoluntarioId(int id)

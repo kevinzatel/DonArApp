@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Dto;
 using Application.Voluntarios;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
@@ -28,11 +29,27 @@ namespace API.Controllers
             return Ok(eventos);
         }
 
+        [HttpGet]
+        [Route("eventosDto")]
+        public async Task<ActionResult<List<EventoDto>>> ListDto()
+        {
+            var eventosDto = await _eventoService.ListDto();
+            return Ok(eventosDto);
+        }
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Evento>>> Get(int id)
+        public async Task<ActionResult<Evento>> Get(int id)
         {
             var evento = await _eventoService.Get(id);
             return Ok(evento);
+        }
+
+        [HttpGet]
+        [Route("eventoDto/{id}")]
+        public async Task<ActionResult<EventoDto>> GetDto(int id)
+        {
+            var eventoDto = await _eventoService.GetDto(id);
+            return Ok(eventoDto);
         }
 
         [Route("eventosporvoluntario/{id}")]
