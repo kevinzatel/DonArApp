@@ -342,3 +342,5 @@ healthchecksdb
 **/bin/**
 **/obj/**
 **/.vs/
+*.db-shm
+*.db-wal
