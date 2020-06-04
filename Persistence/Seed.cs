@@ -214,6 +214,31 @@ namespace Persistence
                 context.SaveChanges();
             }
 
+            if (!context.Provincias.Any())
+            {
+                var provincias = new List<Provincia>
+                    {
+                        new Provincia
+                        {
+                            Nombre = "Buenos Aires"
+                        },
+                        new Provincia
+                        {
+                            Nombre = "Chaco"
+                        },
+                        new Provincia
+                        {
+                            Nombre = "Misiones"
+                        },
+                        new Provincia
+                        {
+                            Nombre = "Tucuman"
+                        },
+                    };
+                context.Provincias.AddRange(provincias);
+                context.SaveChanges();
+            }
+
             if (!context.Eventos.Any())
             {
                 var eventos = new List<Evento>
