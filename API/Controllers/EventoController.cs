@@ -50,6 +50,13 @@ namespace API.Controllers
         }
 
         [HttpPut]
+        public async Task<ActionResult<Evento>> AsignarEspecialidad(int eventoId, int especialidadId)
+        {
+            var eventoCreado = await _eventoService.AsignarEspecialidad(eventoId, especialidadId);
+            return Ok(eventoCreado);
+        }
+
+        [HttpPut]
         public async Task<ActionResult<Evento>> Update(Evento evento)
         {
             var eventoCreado = await _eventoService.Update(evento);

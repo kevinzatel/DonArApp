@@ -12,6 +12,7 @@ namespace Application.Voluntarios
         Task<List<Evento>> List();
         Task<List<Evento>> ListEventosByVoluntarioId(int id);
         Task<Evento> Add(Evento evento);
+        Task<Evento> AsignarEspecialidad(int eventoId, int especialidadId);
         Task<Evento> Update(Evento evento);
     }
 }

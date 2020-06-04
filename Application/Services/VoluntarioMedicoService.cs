@@ -54,6 +54,7 @@ namespace Application.Voluntarios
                 var voluntarioConMenosTareas = voluntariosDisponibles.OrderBy(v => getEventos(v.Id).Count()).FirstOrDefault();
                 return voluntarioConMenosTareas.Id;
             }
+
             return -1;
         }
 
