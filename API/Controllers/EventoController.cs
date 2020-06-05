@@ -59,6 +59,13 @@ namespace API.Controllers
             return Ok(eventos);
         }
 
+        [Route("eventosdtoporvoluntario/{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosDtoByVoluntarioId(int id)
+        {
+            var eventosDto = await _eventoService.ListEventosDtoByVoluntarioId(id);
+            return Ok(eventosDto);
+        }
+
         [HttpPost]
         public async Task<ActionResult<Evento>> Add(Evento evento)
         {
@@ -67,18 +74,27 @@ namespace API.Controllers
         }
 
         [HttpPut]
+        [Route("asignarEspecialidad")]
         public async Task<ActionResult<Evento>> AsignarEspecialidad(EventoEspecialidadDto eventoEspecialidadDto)
         {
             var evento = await _eventoService.AsignarEspecialidad(eventoEspecialidadDto.EventoId, eventoEspecialidadDto.EspecialidadId);
             return Ok(evento);
         }
 
-        //[HttpPut]
-        //public async Task<ActionResult<Evento>> Update(Evento evento)
-        //{
-        //    var eventoCreado = await _eventoService.Update(evento);
-        //    return Ok(eventoCreado);
-        //}
+        [HttpPut]
+        [Route("modificarEstado")]
+        public async Task<ActionResult<Evento>> ModificarEstado(EventoEstadoDto eventoEstadoDto)
+        {
+            var evento = await _eventoService.ModificarEstado(eventoEstadoDto.EventoId, eventoEstadoDto.Estado);
+            return Ok(evento);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Evento>> Update(Evento evento)
+        {
+            var eventoCreado = await _eventoService.Update(evento);
+            return Ok(eventoCreado);
+        }
 
     }
 }

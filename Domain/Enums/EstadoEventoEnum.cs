@@ -6,8 +6,9 @@ namespace Domain.Enums
 {
     public enum EstadoEventoEnum
     {
-        CREADO,
-        ENPROGRESO,
+        PENDIENTE,
+        ACEPTADO,
+        RECHAZADO,
         FINALIZADO
     }
 }

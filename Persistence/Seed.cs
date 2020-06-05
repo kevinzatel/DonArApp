@@ -265,7 +265,7 @@ namespace Persistence
                         new Evento
                         {
                             PacienteId = 1,
-                            Estado = EstadoEventoEnum.CREADO,
+                            Estado = EstadoEventoEnum.PENDIENTE,
                             Fecha = "1/1/2020",
                             Seguimiento = true,
                             Sintomas = "unos sintomas",

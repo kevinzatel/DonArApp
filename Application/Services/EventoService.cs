@@ -80,11 +80,23 @@ namespace Application.Voluntarios
             return eventos;
         }
 
+        public async Task<List<EventoDto>> ListEventosDtoByVoluntarioId(int id)
+        {
+            var eventosDto = new List<EventoDto>();
+            var eventosDeVoluntario = await ListEventosByVoluntarioId(id);
+            foreach (var evento in eventosDeVoluntario)
+            {
+                var eventoDto = await GetDto(evento.Id);
+                eventosDto.Add(eventoDto);
+            }
+            return eventosDto;
+        }
+
         public async Task<Evento> Add(Evento evento)
         {
             var voluntarioId = await _voluntarioBasicoService.ObtenerVoluntarioIdConMenosTareas();
             evento.VoluntarioBasicoId = voluntarioId;
-            evento.Estado = EstadoEventoEnum.CREADO;
+            evento.Estado = EstadoEventoEnum.PENDIENTE;
             await _context.Eventos.AddAsync(evento);
             _context.SaveChanges();
             return evento;
@@ -94,8 +106,25 @@ namespace Application.Voluntarios
         {
             var voluntarioId = await _voluntarioMedicoService.ObtenerMedicoDisponible(especialdiadId);
             var evento = await Get(eventoId);
+            evento.EspecialidadId = especialdiadId;
             evento.VoluntarioMedicoId = voluntarioId;
             evento.VoluntarioBasicoId = null;
+            _context.Eventos.Update(evento);
+            _context.SaveChanges();
+            return evento;
+        }
+
+        public async Task<Evento> ModificarEstado(int eventoId, EstadoEventoEnum estado)
+        {
+            if (estado != EstadoEventoEnum.ACEPTADO && estado != EstadoEventoEnum.RECHAZADO && estado != EstadoEventoEnum.FINALIZADO) throw new Exception("Estado inválido");
+            var evento = await Get(eventoId);
+            if (estado == EstadoEventoEnum.FINALIZADO) evento.VoluntarioMedicoId = null;
+            if (estado == EstadoEventoEnum.RECHAZADO)
+            {
+                await AsignarEspecialidad(evento.Id, evento.EspecialidadId.Value);
+                estado = EstadoEventoEnum.PENDIENTE;
+            }
+            evento.Estado = estado;
             _context.Eventos.Update(evento);
             _context.SaveChanges();
             return evento;
