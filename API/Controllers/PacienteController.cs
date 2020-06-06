@@ -29,6 +29,15 @@ namespace API.Controllers
             return Ok(pacientes);
         }
 
+        [HttpGet]
+        [Route("obtenerpacientesdto")]
+        public async Task<ActionResult<IEnumerable<VoluntarioBasico>>> ObtenerPacientesDto()
+
+        {
+            var pacientes = await _pacienteService.ObtenerPacientesDto();
+            return Ok(pacientes);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<VoluntarioBasico>> Get(int id)
         {

@@ -267,7 +267,6 @@ namespace Persistence
                             PacienteId = 1,
                             Estado = EstadoEventoEnum.PENDIENTE,
                             Fecha = "1/1/2020",
-                            Seguimiento = true,
                             Sintomas = "unos sintomas",
                             VoluntarioBasicoId = 1
                         }

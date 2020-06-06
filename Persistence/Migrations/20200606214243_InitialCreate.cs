@@ -47,12 +47,26 @@ namespace Persistence.Migrations
                     Edad = table.Column<int>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),
                     NacionalidadId = table.Column<int>(nullable: false),
+                    ProvinciaId = table.Column<int>(nullable: false),
                     TerminosyCondiciones = table.Column<bool>(nullable: false),
                     HistorialClinico = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Pacientes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Provincias",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Provincias", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,6 +97,7 @@ namespace Persistence.Migrations
                     Edad = table.Column<int>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),
                     NacionalidadId = table.Column<int>(nullable: false),
+                    ProvinciaId = table.Column<int>(nullable: false),
                     TerminosyCondiciones = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -105,6 +120,7 @@ namespace Persistence.Migrations
                     Edad = table.Column<int>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),
                     NacionalidadId = table.Column<int>(nullable: false),
+                    ProvinciaId = table.Column<int>(nullable: false),
                     TerminosyCondiciones = table.Column<bool>(nullable: false),
                     EspecialidadId = table.Column<int>(nullable: false),
                     Matricula = table.Column<string>(nullable: true),
@@ -127,10 +143,12 @@ namespace Persistence.Migrations
                     Estado = table.Column<int>(nullable: false),
                     Sintomas = table.Column<string>(nullable: true),
                     Fecha = table.Column<string>(nullable: true),
-                    Seguimiento = table.Column<bool>(nullable: false),
                     EspecialidadId = table.Column<int>(nullable: true),
                     VoluntarioBasicoId = table.Column<int>(nullable: true),
-                    VoluntarioMedicoId = table.Column<int>(nullable: true)
+                    VoluntarioMedicoId = table.Column<int>(nullable: true),
+                    DiagnosticoPresuntivo = table.Column<bool>(nullable: false),
+                    TratamientoFarmacologico = table.Column<bool>(nullable: false),
+                    Detalle = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -173,6 +191,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pacientes");
+
+            migrationBuilder.DropTable(
+                name: "Provincias");
 
             migrationBuilder.DropTable(
                 name: "TiposUsuarios");
