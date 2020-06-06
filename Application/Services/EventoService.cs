@@ -80,11 +80,29 @@ namespace Application.Voluntarios
             return eventos;
         }
 
+        public async Task<List<Evento>> ListEventosByPacienteId(int id)
+        {
+            var eventos = await _context.Eventos.Where(e => e.PacienteId == id).ToListAsync();
+            return eventos;
+        }
+
         public async Task<List<EventoDto>> ListEventosDtoByVoluntarioId(int id)
         {
             var eventosDto = new List<EventoDto>();
             var eventosDeVoluntario = await ListEventosByVoluntarioId(id);
             foreach (var evento in eventosDeVoluntario)
+            {
+                var eventoDto = await GetDto(evento.Id);
+                eventosDto.Add(eventoDto);
+            }
+            return eventosDto;
+        }
+
+        public async Task<List<EventoDto>> ListEventosDtoByPacienteId(int id)
+        {
+            var eventosDto = new List<EventoDto>();
+            var eventosDePaciente = await ListEventosByPacienteId(id);
+            foreach (var evento in eventosDePaciente)
             {
                 var eventoDto = await GetDto(evento.Id);
                 eventosDto.Add(eventoDto);

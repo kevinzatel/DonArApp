@@ -66,6 +66,13 @@ namespace API.Controllers
             return Ok(eventosDto);
         }
 
+        [Route("eventosdtoporpaciente/{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosDtoByPacienteId(int id)
+        {
+            var eventosDto = await _eventoService.ListEventosDtoByPacienteId(id);
+            return Ok(eventosDto);
+        }
+
         [HttpPost]
         public async Task<ActionResult<Evento>> Add(Evento evento)
         {
