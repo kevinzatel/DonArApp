@@ -104,6 +104,25 @@ namespace Persistence
                         InicioJornada = "13:00:00",
                         FinJornada = "19:00:00",
                         Eventos = new List<Evento>()
+                    },
+                    new VoluntarioMedico
+                    {
+                        Nombre = "Aldo",
+                        Apellido = "Pelegrini",
+                        Edad = 48,
+                        Genero = GeneroEnum.Masculino,
+                        NacionalidadId = 2,
+                        TipoUsuarioId = 3,
+                        TerminosyCondiciones = true,
+                        Dni = 41111111,
+                        Telefono = "7777-7777",
+                        Email = "teatrodelainesatablerealidad@gmail.com",
+                        Matricula = "4444",
+                        Seguro = "8888",
+                        EspecialidadId = 2,
+                        InicioJornada = "13:00:00",
+                        FinJornada = "19:00:00",
+                        Eventos = new List<Evento>()
                     }
                 };
 
@@ -214,6 +233,47 @@ namespace Persistence
                 context.SaveChanges();
             }
 
+            if (!context.Provincias.Any())
+            {
+                var provincias = new List<Provincia>
+                    {
+                        new Provincia
+                        {
+                            Nombre = "Buenos Aires"
+                        },
+                        new Provincia
+                        {
+                            Nombre = "Chaco"
+                        },
+                        new Provincia
+                        {
+                            Nombre = "Misiones"
+                        },
+                        new Provincia
+                        {
+                            Nombre = "Tucuman"
+                        },
+                    };
+                context.Provincias.AddRange(provincias);
+                context.SaveChanges();
+            }
+
+            if (!context.Eventos.Any())
+            {
+                var eventos = new List<Evento>
+                    {
+                        new Evento
+                        {
+                            PacienteId = 1,
+                            Estado = EstadoEventoEnum.PENDIENTE,
+                            Fecha = "1/1/2020",
+                            Sintomas = "unos sintomas",
+                            VoluntarioBasicoId = 1
+                        }
+                    };
+                context.Eventos.AddRange(eventos);
+                context.SaveChanges();
+            }
 
         }
     }

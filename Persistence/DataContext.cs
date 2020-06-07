@@ -17,5 +17,6 @@ namespace Persistence
         public DbSet<TipoUsuario> TiposUsuarios { get; set; }
         public DbSet<Especialidad> Especialidades { get; set; }
         public DbSet<Nacionalidad> Nacionalidades { get; set; }
+        public DbSet<Provincia> Provincias { get; set; }
     }
 }

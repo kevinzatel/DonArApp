@@ -41,6 +41,7 @@ namespace API
             services.AddScoped<IEspecialidadService, EspecialidadService>();
             services.AddScoped<ITipoUsuarioService, TipoUsuarioService>();
             services.AddScoped<INacionalidadService, NacionalidadService>();
+            services.AddScoped<IProvinciaService, ProvinciaService>();
 
             services.AddControllers();
 
