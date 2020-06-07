@@ -66,6 +66,13 @@ namespace API.Controllers
             return Ok(eventosDto);
         }
 
+        [Route("eventosporpaciente/{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosByPacienteId(int id)
+        {
+            var eventos = await _eventoService.ListEventosByPacienteId(id);
+            return Ok(eventos);
+        }
+
         [Route("eventosdtoporpaciente/{id}")]
         public async Task<ActionResult<List<Evento>>> ListEventosDtoByPacienteId(int id)
         {
