@@ -150,12 +150,6 @@ namespace Application.Voluntarios
 
         public async Task<Evento> Update(Evento evento)
         {
-            var voluntarioId = await _voluntarioMedicoService.ObtenerMedicoDisponible(evento.EspecialidadId.Value);
-            if(voluntarioId != -1)
-            {
-                evento.VoluntarioMedicoId = voluntarioId;
-                evento.VoluntarioBasicoId = null;
-            }
             _context.Eventos.Update(evento);
             _context.SaveChanges();
             return evento;
