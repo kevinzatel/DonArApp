@@ -9,7 +9,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200606214243_InitialCreate")]
+    [Migration("20200601150523_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,12 +38,6 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Detalle")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("DiagnosticoPresuntivo")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("EspecialidadId")
                         .HasColumnType("INTEGER");
 
@@ -56,11 +50,11 @@ namespace Persistence.Migrations
                     b.Property<int>("PacienteId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("Seguimiento")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Sintomas")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TratamientoFarmacologico")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("VoluntarioBasicoId")
                         .HasColumnType("INTEGER");
@@ -121,9 +115,6 @@ namespace Persistence.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ProvinciaId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
@@ -136,20 +127,6 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pacientes");
-                });
-
-            modelBuilder.Entity("Domain.Provincia", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Provincias");
                 });
 
             modelBuilder.Entity("Domain.TipoUsuario", b =>
@@ -192,9 +169,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("ProvinciaId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
@@ -248,9 +222,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("ProvinciaId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Seguro")
                         .HasColumnType("TEXT");

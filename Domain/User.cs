@@ -16,8 +16,7 @@ namespace Domain
         public int Dni { get; set; }
         public int Edad { get; set; }
         public string Telefono { get; set; }
-        public virtual int NacionalidadId { get; set; }
-        public virtual int ProvinciaId { get; set; }
+        public int NacionalidadId { get; set; }
         public bool TerminosyCondiciones { get; set; } 
     }
 }

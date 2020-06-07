@@ -1,5 +1,4 @@
-﻿using Application.Dto;
-using Domain;
+﻿using Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +9,6 @@ namespace Application.Voluntarios
     public interface IPacienteService
     {
         Task<List<Paciente>> List();
-        Task<List<PacienteDto>> ObtenerPacientesDto();
         Task<Paciente> Get(int id);
         Task<Paciente> Get(string correo);
         Task Add(Paciente paciente);

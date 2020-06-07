@@ -1,5 +1,4 @@
-﻿using Application.Dto;
-using Domain;
+﻿using Domain;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System;
@@ -23,24 +22,6 @@ namespace Application.Voluntarios
         {
             var pacientes = await _context.Pacientes.ToListAsync();
             return pacientes;
-        }
-
-        public async Task<List<PacienteDto>> ObtenerPacientesDto()
-        {
-            var pacientesDto = new List<PacienteDto>();
-            var pacientes = await List();
-            foreach (var paciente in pacientes)
-            {
-                var pacienteDto = new PacienteDto()
-                {
-                    Id = paciente.Id,
-                    Nombre = paciente.Nombre,
-                    Apellido = paciente.Apellido
-                };
-                pacientesDto.Add(pacienteDto);
-            }
-
-            return pacientesDto;
         }
 
         public async Task<Paciente> Get(int id)

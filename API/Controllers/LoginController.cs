@@ -38,5 +38,11 @@ namespace API.Controllers
                 }
             return Ok(l);
         }
+
+        [HttpPost("{correo}, {id}")]
+        public async Task<ActionResult<Boolean>> Get(string correo, string id)
+        {
+            return Ok();
+        }
     }
 }
