@@ -17,6 +17,7 @@ namespace Application.Voluntarios
         Task<List<Evento>> ListEventosByVoluntarioId(int id);
         Task<List<EventoDto>> ListEventosDtoByVoluntarioId(int id);
         Task<List<Evento>> ListEventosByPacienteId(int id);
+        Task<List<Evento>> ListEventosByPacienteEmail(string email);
         Task<List<EventoDto>> ListEventosDtoByPacienteId(int id);
         Task<Evento> Add(Evento evento);
         Task<Evento> AsignarEspecialidad(int eventoId, int especialidadId);

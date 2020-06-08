@@ -80,6 +80,13 @@ namespace API.Controllers
             return Ok(eventosDto);
         }
 
+        [Route("eventosporemailpaciente/{email}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosDtoByPacienteEmail(string email)
+        {
+            var eventos = await _eventoService.ListEventosByPacienteEmail(email);
+            return Ok(eventos);
+        }
+
         [HttpPost]
         public async Task<ActionResult<Evento>> Add(Evento evento)
         {
