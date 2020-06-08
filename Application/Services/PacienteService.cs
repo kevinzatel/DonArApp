@@ -60,5 +60,6 @@ namespace Application.Voluntarios
             var paciente = await _context.Pacientes.FirstOrDefaultAsync(x=>x.Email.Equals(correo));
             return paciente;
         }
+       
     }
 }

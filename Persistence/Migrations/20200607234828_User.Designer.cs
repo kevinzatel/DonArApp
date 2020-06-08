@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200606214243_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200607234828_User")]
+    partial class User
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -115,6 +115,9 @@ namespace Persistence.Migrations
                     b.Property<string>("HistorialClinico")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("NacionalidadId")
                         .HasColumnType("INTEGER");
 
@@ -126,9 +129,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TerminosyCondiciones")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoUsuarioId")
                         .HasColumnType("INTEGER");
@@ -187,6 +187,9 @@ namespace Persistence.Migrations
                     b.Property<int>("Genero")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("NacionalidadId")
                         .HasColumnType("INTEGER");
 
@@ -198,9 +201,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TerminosyCondiciones")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoUsuarioId")
                         .HasColumnType("INTEGER");
@@ -237,6 +237,9 @@ namespace Persistence.Migrations
                     b.Property<int>("Genero")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("InicioJornada")
                         .HasColumnType("TEXT");
 
@@ -257,9 +260,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TerminosyCondiciones")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoUsuarioId")
                         .HasColumnType("INTEGER");

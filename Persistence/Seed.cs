@@ -17,44 +17,17 @@ namespace Persistence
                 {
                     new VoluntarioBasico
                     {
+                        IdGoogle="",
                         Nombre = "Charly",
                         Apellido = "Mendez",
-                        Edad = 20,
-                        Genero = GeneroEnum.Masculino,
-                        NacionalidadId = 1,
                         TipoUsuarioId = 2,
-                        TerminosyCondiciones = true,
-                        Dni = 38888888,
-                        Telefono = "4444-4444",
                         Email = "charly.magico@gmail.com",
-                        Eventos = new List<Evento>()
-                    },
-                     new VoluntarioBasico
-                    {
-                        Nombre = "Jimmy",
-                        Apellido = "Newtron",
-                        Edad = 12,
                         Genero = GeneroEnum.Masculino,
+                         Dni = 38888888,
+                          Telefono = "4444-4444",
+                        Edad = 20,
                         NacionalidadId = 1,
-                        TipoUsuarioId = 2,
-                        TerminosyCondiciones = true,
-                        Dni = 39999999,
-                        Telefono = "5555-5555",
-                        Email = "elcabezon@gmail.com",
-                        Eventos = new List<Evento>()
-                    },
-                      new VoluntarioBasico
-                    {
-                        Nombre = "Saul",
-                        Apellido = "Goodman",
-                        Edad = 58,
-                        Genero = GeneroEnum.Masculino,
-                        NacionalidadId = 1,
-                        TipoUsuarioId = 2,
-                        TerminosyCondiciones = true,
-                        Dni = 39999999,
-                        Telefono = "5555-5555",
-                        Email = "bettercallsaul@gmail.com",
+                        ProvinciaId=1,
                         Eventos = new List<Evento>()
                     }
                 };
@@ -69,59 +42,22 @@ namespace Persistence
                 {
                     new VoluntarioMedico
                     {
+                        IdGoogle="",
                         Nombre = "Johnny",
                         Apellido = "Bravo",
-                        Edad = 18,
-                        Genero = GeneroEnum.Masculino,
-                        NacionalidadId = 1,
                         TipoUsuarioId = 3,
-                        TerminosyCondiciones = true,
-                        Dni = 40000000,
-                        Telefono = "6666-6666",
-                        Email = "holanena@gmail.com",
-                        Matricula = "1234",
-                        Seguro = "5678",
-                        EspecialidadId = 1,
+                         Email = "holanena@gmail.com",
+                          Genero = GeneroEnum.Masculino,
+                          Dni = 40000000,
+                           Telefono = "6666-6666",
+                        Edad = 18,
+                        NacionalidadId = 1,
+                        ProvinciaId = 1,
+                          EspecialidadId = 1,
+                          Matricula = "1234",
+                          Seguro = "5678",
                         InicioJornada = "9:00:00",
                         FinJornada = "13:00:00",
-                        Eventos = new List<Evento>()
-                    },
-                     new VoluntarioMedico
-                    {
-                        Nombre = "Oscar",
-                        Apellido = "Wilde",
-                        Edad = 48,
-                        Genero = GeneroEnum.Masculino,
-                        NacionalidadId = 2,
-                        TipoUsuarioId = 3,
-                        TerminosyCondiciones = true,
-                        Dni = 41111111,
-                        Telefono = "7777-7777",
-                        Email = "laboratorios.dex@gmail.com",
-                        Matricula = "4321",
-                        Seguro = "8765",
-                        EspecialidadId = 2,
-                        InicioJornada = "13:00:00",
-                        FinJornada = "19:00:00",
-                        Eventos = new List<Evento>()
-                    },
-                    new VoluntarioMedico
-                    {
-                        Nombre = "Aldo",
-                        Apellido = "Pelegrini",
-                        Edad = 48,
-                        Genero = GeneroEnum.Masculino,
-                        NacionalidadId = 2,
-                        TipoUsuarioId = 3,
-                        TerminosyCondiciones = true,
-                        Dni = 41111111,
-                        Telefono = "7777-7777",
-                        Email = "teatrodelainesatablerealidad@gmail.com",
-                        Matricula = "4444",
-                        Seguro = "8888",
-                        EspecialidadId = 2,
-                        InicioJornada = "13:00:00",
-                        FinJornada = "19:00:00",
                         Eventos = new List<Evento>()
                     }
                 };
@@ -136,16 +72,17 @@ namespace Persistence
                     {
                         new Paciente
                         {
-                            Nombre = "Charles",
-                            Apellido = "Bodeler",
+                            IdGoogle = null,
+                            Nombre = "Roni",
+                            Apellido = "JL",
+                            TipoUsuarioId = 1,
+                            Email = "juventud1@live.com.ar",
                             Genero = GeneroEnum.Masculino,
                             Dni = 42222222,
                             Telefono = "8888-8888",
-                            Email = "la.moneda.falsa@gmail.com",
                             Edad = 28,
                             NacionalidadId = 1,
-                            TerminosyCondiciones = true,
-                            TipoUsuarioId = 1,
+                            ProvinciaId = 1,
                             HistorialClinico = "historial clinico"
                             
                         }
@@ -274,6 +211,7 @@ namespace Persistence
                 context.Eventos.AddRange(eventos);
                 context.SaveChanges();
             }
+
 
         }
     }

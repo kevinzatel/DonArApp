@@ -113,6 +113,9 @@ namespace Persistence.Migrations
                     b.Property<string>("HistorialClinico")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("NacionalidadId")
                         .HasColumnType("INTEGER");
 
@@ -124,9 +127,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TerminosyCondiciones")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoUsuarioId")
                         .HasColumnType("INTEGER");
@@ -185,6 +185,9 @@ namespace Persistence.Migrations
                     b.Property<int>("Genero")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("NacionalidadId")
                         .HasColumnType("INTEGER");
 
@@ -196,9 +199,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TerminosyCondiciones")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoUsuarioId")
                         .HasColumnType("INTEGER");
@@ -235,6 +235,9 @@ namespace Persistence.Migrations
                     b.Property<int>("Genero")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("InicioJornada")
                         .HasColumnType("TEXT");
 
@@ -255,9 +258,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TerminosyCondiciones")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoUsuarioId")
                         .HasColumnType("INTEGER");
