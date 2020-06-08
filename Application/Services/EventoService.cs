@@ -98,6 +98,14 @@ namespace Application.Voluntarios
             return eventosDto;
         }
 
+        public async Task<List<Evento>> ListEventosByPacienteEmail(string email)
+        {
+            var paciente = await _context.Pacientes.Where(p => p.Email == email).FirstOrDefaultAsync();
+            if (paciente == null) throw new Exception("No se encontró ningún paciente con el email ingresado.");
+            var eventos = await ListEventosByPacienteId(paciente.Id);
+            return eventos;
+        }
+
         public async Task<List<EventoDto>> ListEventosDtoByPacienteId(int id)
         {
             var eventosDto = new List<EventoDto>();
