@@ -14,5 +14,6 @@ namespace Application.Voluntarios
         Task<VoluntarioMedico> Get(string correo);
         Task Add(VoluntarioMedico voluntarioMedico);
         Task<int> ObtenerMedicoDisponible(int especialidadId);
+        Task<VoluntarioMedico> Update(VoluntarioMedico vm);
     }
 }

@@ -38,8 +38,8 @@ namespace API.Controllers
                 }
             return Ok(l);
         }
-        [HttpPut]
-        public async Task<ActionResult<Boolean>> Put(string correo, string IdGoogle)
+        [HttpPut("{correo}")]
+        public async Task<ActionResult<Login>> Put(string correo, string IdGoogle)
         {
             Login l = new Login();
             Paciente p = await _pacienteService.Get(correo);
@@ -49,10 +49,13 @@ namespace API.Controllers
             {
                 if (p.IdGoogle==null || p.IdGoogle.Equals("0")) {
                     p.IdGoogle = IdGoogle;
+                    _pacienteService.Update(p);
                 } else if (vb.IdGoogle==null || vb.IdGoogle.Equals("0")) {
                     vb.IdGoogle = IdGoogle;
+                    _voluntarioBasicoService.Update(vb);
                 } else if (vm.IdGoogle==null || vm.Id.Equals("0")) {
                     vm.IdGoogle = IdGoogle;
+                    _voluntarioMedicoService.Update(vm);
                 }
                 l.inicio = 1;
             }

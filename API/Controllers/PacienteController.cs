@@ -48,8 +48,22 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult> Add(Paciente paciente)
         {
-            await _pacienteService.Add(paciente);
-            return Ok();
+            var p = _pacienteService.Get(paciente.Email);
+            if (p == null)
+            {
+                await _pacienteService.Add(paciente);
+                return Ok(paciente);
+            }
+            else {
+                return Ok(null);
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Evento>> Update(Paciente paciente)
+        {
+            var pacienteUpdateado = await _pacienteService.Update(paciente);
+            return Ok(pacienteUpdateado);
         }
     }
 }

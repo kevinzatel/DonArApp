@@ -75,5 +75,12 @@ namespace Application.Voluntarios
             var voluntario = await _context.VoluntariosMedicos.FirstOrDefaultAsync(x => x.Email.Equals(correo));
             return voluntario;
         }
+
+        public async Task<VoluntarioMedico> Update(VoluntarioMedico vm)
+        {
+            _context.VoluntariosMedicos.Update(vm);
+            _context.SaveChanges();
+            return vm;
+        }
     }
 }

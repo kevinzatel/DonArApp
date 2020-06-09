@@ -14,5 +14,6 @@ namespace Application.Voluntarios
         Task<Paciente> Get(int id);
         Task<Paciente> Get(string correo);
         Task Add(Paciente paciente);
+        Task<Paciente> Update(Paciente paciente);
     }
 }

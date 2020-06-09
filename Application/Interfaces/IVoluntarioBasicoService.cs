@@ -13,5 +13,6 @@ namespace Application.Voluntarios
         Task<VoluntarioBasico> Get(string correo);
         Task Add(VoluntarioBasico voluntarioBasico);
         Task<int> ObtenerVoluntarioIdConMenosTareas();
+        Task<VoluntarioBasico> Update(VoluntarioBasico vb);
     }
 }

@@ -60,6 +60,13 @@ namespace Application.Voluntarios
             var paciente = await _context.Pacientes.FirstOrDefaultAsync(x=>x.Email.Equals(correo));
             return paciente;
         }
-       
+
+        public async Task<Paciente> Update(Paciente paciente)
+        {
+            _context.Pacientes.Update(paciente);
+            _context.SaveChanges();
+            return paciente;
+        }
+
     }
 }
