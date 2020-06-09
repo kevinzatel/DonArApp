@@ -52,7 +52,7 @@ namespace API.Controllers
             if (p == null)
             {
                 await _pacienteService.Add(paciente);
-                return Ok(paciente);
+                return Ok(paciente.Id);
             }
             else {
                 return Ok(null);

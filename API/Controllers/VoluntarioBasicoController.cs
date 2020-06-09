@@ -43,7 +43,7 @@ namespace API.Controllers
             if (vb == null)
             {
                 await _voluntarioService.Add(voluntarioBasico);
-                return Ok(voluntarioBasico);
+                return Ok(voluntarioBasico.Id);
             }
             else
             {
