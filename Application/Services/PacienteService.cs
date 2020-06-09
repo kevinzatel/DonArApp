@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,9 +56,9 @@ namespace Application.Voluntarios
             _context.SaveChanges();
         }
 
-        public async Task<Paciente> Get(string correo) 
+        public Paciente Get(string correo) 
         {
-            var paciente = await _context.Pacientes.FirstOrDefaultAsync(x=>x.Email.Equals(correo));
+            var paciente = _context.Pacientes.FirstOrDefault(x=>x.Email.Equals(correo));
             return paciente;
         }
 
