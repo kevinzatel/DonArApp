@@ -29,8 +29,8 @@ namespace API.Controllers
         {
             Login l=new Login();
                 Paciente p =  _pacienteService.Get(correo);
-                VoluntarioBasico vb = await _voluntarioBasicoService.Get(correo);
-                VoluntarioMedico vm = await _voluntarioMedicoService.Get(correo);
+                VoluntarioBasico vb =  _voluntarioBasicoService.Get(correo);
+                VoluntarioMedico vm =  _voluntarioMedicoService.Get(correo);
                 if (p != null || vb!=null || vm!=null) {
                 l.inicio = 1;
                 } else {
@@ -43,8 +43,8 @@ namespace API.Controllers
         {
             Login l = new Login();
             Paciente p =  _pacienteService.Get(correo);
-            VoluntarioBasico vb = await _voluntarioBasicoService.Get(correo);
-            VoluntarioMedico vm = await _voluntarioMedicoService.Get(correo);
+            VoluntarioBasico vb =  _voluntarioBasicoService.Get(correo);
+            VoluntarioMedico vm =  _voluntarioMedicoService.Get(correo);
             if (p != null || vb != null || vm != null)
             {
                 if (p.IdGoogle==null || p.IdGoogle.Equals("0")) {
