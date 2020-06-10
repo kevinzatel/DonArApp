@@ -28,7 +28,7 @@ namespace API.Controllers
         public async Task<ActionResult<Boolean>> Get(string correo)
         {
             Login l=new Login();
-                Paciente p = await _pacienteService.Get(correo);
+                Paciente p =  _pacienteService.Get(correo);
                 VoluntarioBasico vb = await _voluntarioBasicoService.Get(correo);
                 VoluntarioMedico vm = await _voluntarioMedicoService.Get(correo);
                 if (p != null || vb!=null || vm!=null) {
@@ -42,7 +42,7 @@ namespace API.Controllers
         public async Task<ActionResult<Login>> Put(string correo, string IdGoogle)
         {
             Login l = new Login();
-            Paciente p = await _pacienteService.Get(correo);
+            Paciente p =  _pacienteService.Get(correo);
             VoluntarioBasico vb = await _voluntarioBasicoService.Get(correo);
             VoluntarioMedico vm = await _voluntarioMedicoService.Get(correo);
             if (p != null || vb != null || vm != null)
