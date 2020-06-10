@@ -43,9 +43,9 @@ namespace Application.Voluntarios
             return voluntario.Id;
         }
 
-        public async Task<VoluntarioBasico> Get(string correo)
+        public VoluntarioBasico Get(string correo)
         {
-            var voluntario = await _context.VoluntariosBasicos.FirstOrDefaultAsync(x => x.Email.Equals(correo));
+            var voluntario =_context.VoluntariosBasicos.FirstOrDefault(x => x.Email.Equals(correo));
             return voluntario;
         }
         public async Task<VoluntarioBasico> Update(VoluntarioBasico vb)
