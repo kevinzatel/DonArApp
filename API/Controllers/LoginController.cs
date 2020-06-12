@@ -38,31 +38,31 @@ namespace API.Controllers
                 }
             return Ok(l);
         }
-        [HttpPut("{correo}")]
-        public async Task<ActionResult<Login>> Put(string correo, string IdGoogle)
+        [HttpPut]
+        public async Task<ActionResult<Login>> Put(ActualizaIG a)
         {
             Login l = new Login();
-            Paciente p =  _pacienteService.Get(correo);
-            VoluntarioBasico vb =  _voluntarioBasicoService.Get(correo);
-            VoluntarioMedico vm =  _voluntarioMedicoService.Get(correo);
+            Paciente p =  _pacienteService.Get(a.mail);
+            VoluntarioBasico vb =  _voluntarioBasicoService.Get(a.mail);
+            VoluntarioMedico vm =  _voluntarioMedicoService.Get(a.mail);
 
             if (p != null) {
                 if (p.IdGoogle == null || p.IdGoogle.Equals("0"))
                 {
-                    p.IdGoogle = IdGoogle;
+                    p.IdGoogle = a.idGoogle;
                     _pacienteService.Update(p);
                     l.inicio = 1;
                 }
             } else if (vb!=null) {
                 if (vb.IdGoogle == null || vb.IdGoogle.Equals("0")) {
-                    vb.IdGoogle = IdGoogle;
+                    vb.IdGoogle = a.idGoogle;
                     _voluntarioBasicoService.Update(vb);
                     l.inicio = 1;
                 }
             }else if (vm!=null)
             {
                 if (vm.IdGoogle==null || vm.IdGoogle.Equals("0")) {
-                    vm.IdGoogle = IdGoogle;
+                    vm.IdGoogle = a.idGoogle;
                     _voluntarioMedicoService.Update(vm);
                     l.inicio = 1;
                 }
