@@ -45,19 +45,27 @@ namespace API.Controllers
             Paciente p =  _pacienteService.Get(correo);
             VoluntarioBasico vb =  _voluntarioBasicoService.Get(correo);
             VoluntarioMedico vm =  _voluntarioMedicoService.Get(correo);
-            if (p != null || vb != null || vm != null)
-            {
-                if (p.IdGoogle==null || p.IdGoogle.Equals("0")) {
+
+            if (p != null) {
+                if (p.IdGoogle == null || p.IdGoogle.Equals("0"))
+                {
                     p.IdGoogle = IdGoogle;
                     _pacienteService.Update(p);
-                } else if (vb.IdGoogle==null || vb.IdGoogle.Equals("0")) {
+                    l.inicio = 1;
+                }
+            } else if (vb!=null) {
+                if (vb.IdGoogle == null || vb.IdGoogle.Equals("0")) {
                     vb.IdGoogle = IdGoogle;
                     _voluntarioBasicoService.Update(vb);
-                } else if (vm.IdGoogle==null || vm.Id.Equals("0")) {
+                    l.inicio = 1;
+                }
+            }else if (vm!=null)
+            {
+                if (vm.IdGoogle==null || vm.IdGoogle.Equals("0")) {
                     vm.IdGoogle = IdGoogle;
                     _voluntarioMedicoService.Update(vm);
+                    l.inicio = 1;
                 }
-                l.inicio = 1;
             }
             else
             {
