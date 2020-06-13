@@ -25,19 +25,28 @@ namespace API.Controllers
         }
         
         [HttpGet("{correo}")]
-        public async Task<ActionResult<Boolean>> Get(string correo)
+        public async Task<ActionResult<int>> Get(string correo)
         {
-            Login l=new Login();
                 Paciente p =  _pacienteService.Get(correo);
                 VoluntarioBasico vb =  _voluntarioBasicoService.Get(correo);
                 VoluntarioMedico vm =  _voluntarioMedicoService.Get(correo);
-                if (p != null || vb!=null || vm!=null) {
-                l.inicio = 1;
-                } else {
-                l.inicio = 0;
-                }
-            return Ok(l);
+            if (p != null)
+            {
+                return Ok(p.Id);
+            }
+            else if (vb != null)
+            {
+                return Ok(vb.Id);
+            }
+            else if (vm != null)
+            {
+                return Ok(vm.Id);
+            }
+            else {
+                return Ok(0);
+            }
         }
+
         [HttpPut]
         public async Task<ActionResult<Login>> Put(ActualizaIG a)
         {
@@ -51,21 +60,22 @@ namespace API.Controllers
                 {
                     p.IdGoogle = a.idGoogle;
                     _pacienteService.Update(p);
-                    l.inicio = 1;
                 }
+                l.inicio = 1;
             } else if (vb!=null) {
                 if (vb.IdGoogle == null || vb.IdGoogle.Equals("0")) {
                     vb.IdGoogle = a.idGoogle;
                     _voluntarioBasicoService.Update(vb);
-                    l.inicio = 1;
                 }
-            }else if (vm!=null)
+                l.inicio = 1;
+            }
+            else if (vm!=null)
             {
                 if (vm.IdGoogle==null || vm.IdGoogle.Equals("0")) {
                     vm.IdGoogle = a.idGoogle;
                     _voluntarioMedicoService.Update(vm);
-                    l.inicio = 1;
                 }
+                l.inicio = 1;
             }
             else
             {
