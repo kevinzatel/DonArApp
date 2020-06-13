@@ -74,9 +74,15 @@ namespace Application.Voluntarios
             return eventosDto;
         }
 
-        public async Task<List<Evento>> ListEventosByVoluntarioId(int id)
+        public async Task<List<Evento>> ListEventosByVoluntarioBasicoId(int id)
         {
-            var eventos = await _context.Eventos.Where(e => e.VoluntarioBasicoId == id || e.VoluntarioMedicoId == id).ToListAsync();
+            var eventos = await _context.Eventos.Where(e => e.VoluntarioBasicoId == id).ToListAsync();
+            return eventos;
+        }
+
+        public async Task<List<Evento>> ListEventosByVoluntarioMedicoId(int id)
+        {
+            var eventos = await _context.Eventos.Where(e => e.VoluntarioMedicoId == id).ToListAsync();
             return eventos;
         }
 
@@ -86,10 +92,22 @@ namespace Application.Voluntarios
             return eventos;
         }
 
-        public async Task<List<EventoDto>> ListEventosDtoByVoluntarioId(int id)
+        public async Task<List<EventoDto>> ListEventosDtoByVoluntarioBasicoId(int id)
         {
             var eventosDto = new List<EventoDto>();
-            var eventosDeVoluntario = await ListEventosByVoluntarioId(id);
+            var eventosDeVoluntario = await ListEventosByVoluntarioBasicoId(id);
+            foreach (var evento in eventosDeVoluntario)
+            {
+                var eventoDto = await GetDto(evento.Id);
+                eventosDto.Add(eventoDto);
+            }
+            return eventosDto;
+        }
+
+        public async Task<List<EventoDto>> ListEventosDtoByVoluntarioMedicoId(int id)
+        {
+            var eventosDto = new List<EventoDto>();
+            var eventosDeVoluntario = await ListEventosByVoluntarioMedicoId(id);
             foreach (var evento in eventosDeVoluntario)
             {
                 var eventoDto = await GetDto(evento.Id);
