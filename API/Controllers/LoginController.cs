@@ -25,25 +25,32 @@ namespace API.Controllers
         }
         
         [HttpGet("{correo}")]
-        public async Task<ActionResult<int>> Get(string correo)
+        public async Task<ActionResult<VolLogin>> Get(string correo)
         {
+                 VolLogin v = new VolLogin();
                 Paciente p =  _pacienteService.Get(correo);
                 VoluntarioBasico vb =  _voluntarioBasicoService.Get(correo);
                 VoluntarioMedico vm =  _voluntarioMedicoService.Get(correo);
             if (p != null)
             {
-                return Ok(p.Id);
+                v.idUser = p.Id;
+                v.tipoUser = p.TipoUsuarioId;
+                return Ok(v);
             }
             else if (vb != null)
             {
-                return Ok(vb.Id);
+                v.idUser = vb.Id;
+                v.tipoUser = vb.TipoUsuarioId;
+                return Ok(v);
             }
             else if (vm != null)
             {
-                return Ok(vm.Id);
+                v.idUser = vm.Id;
+                v.tipoUser = vm.TipoUsuarioId;
+                return Ok(v);
             }
             else {
-                return Ok(0);
+                return Ok(null);
             }
         }
 
