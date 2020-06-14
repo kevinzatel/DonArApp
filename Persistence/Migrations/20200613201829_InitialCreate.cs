@@ -7,6 +7,22 @@ namespace Persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Donaciones",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FechaIngreso = table.Column<string>(nullable: true),
+                    FechaEgreso = table.Column<string>(nullable: true),
+                    Estado = table.Column<string>(nullable: true),
+                    IdDestinatario = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Donaciones", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Especialidades",
                 columns: table => new
                 {
@@ -53,6 +69,19 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Pacientes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Provincias",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Provincias", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,6 +147,27 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ItemDonacion",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(nullable: true),
+                    Cantidad = table.Column<int>(nullable: false),
+                    DonacionId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ItemDonacion", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ItemDonacion_Donaciones_DonacionId",
+                        column: x => x.DonacionId,
+                        principalTable: "Donaciones",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Eventos",
                 columns: table => new
                 {
@@ -158,6 +208,11 @@ namespace Persistence.Migrations
                 name: "IX_Eventos_VoluntarioMedicoId",
                 table: "Eventos",
                 column: "VoluntarioMedicoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItemDonacion_DonacionId",
+                table: "ItemDonacion",
+                column: "DonacionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -169,10 +224,16 @@ namespace Persistence.Migrations
                 name: "Eventos");
 
             migrationBuilder.DropTable(
+                name: "ItemDonacion");
+
+            migrationBuilder.DropTable(
                 name: "Nacionalidades");
 
             migrationBuilder.DropTable(
                 name: "Pacientes");
+
+            migrationBuilder.DropTable(
+                name: "Provincias");
 
             migrationBuilder.DropTable(
                 name: "TiposUsuarios");
@@ -182,6 +243,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "VoluntariosMedicos");
+
+            migrationBuilder.DropTable(
+                name: "Donaciones");
         }
     }
 }

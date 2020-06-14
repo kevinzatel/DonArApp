@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Domain
 {
-    class Alimento : ItemDonacion
+    public class Alimento : ItemDonacion
     {
+        public DateTime Vencimiento { get; set; }
     }
 }

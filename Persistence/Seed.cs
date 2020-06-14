@@ -276,6 +276,25 @@ namespace Persistence
                 context.SaveChanges();
             }
 
+            if (!context.Donaciones.Any())
+            {
+                var donaciones = new List<Donacion>
+                    {
+                        new Donacion
+                        {
+                            Id = 1,
+                            FechaIngreso = "12/04/2020",
+                            FechaEgreso = "13/04/2020",
+                            Estado = "Entregado",
+                            IdDestinatario = 1,
+                            Items = new List<ItemDonacion>()
+
+    }
+                    };
+                context.Donaciones.AddRange(donaciones);
+                context.SaveChanges();
+            }
+
         }
     }
 }

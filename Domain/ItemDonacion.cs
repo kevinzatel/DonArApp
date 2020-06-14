@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Domain
 {
-    class ItemDonacion
+    public class ItemDonacion
     {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int Cantidad { get; set; }
+
     }
 }

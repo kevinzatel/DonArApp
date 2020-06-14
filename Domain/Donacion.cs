@@ -4,11 +4,13 @@ using System.Text;
 
 namespace Domain
 {
-    class Donacion
+    public class Donacion
     {
         public int Id { get; set; }
-        public DateTime FechaIngreso { get; set; }
-        public DateTime FechaEgreso { get; set; }
+        public String FechaIngreso { get; set; }
+        public String FechaEgreso { get; set; }
+        public String Estado { get; set; }
+        public int IdDestinatario { get; set; }
         public List<ItemDonacion> Items { get; set; }
     }
 }

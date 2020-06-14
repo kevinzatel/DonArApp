@@ -9,14 +9,37 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200604132512_Provincias")]
-    partial class Provincias
+    [Migration("20200613201829_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.3");
+
+            modelBuilder.Entity("Domain.Donacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FechaEgreso")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FechaIngreso")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("IdDestinatario")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Donaciones");
+                });
 
             modelBuilder.Entity("Domain.Especialidad", b =>
                 {
@@ -69,6 +92,28 @@ namespace Persistence.Migrations
                     b.HasIndex("VoluntarioMedicoId");
 
                     b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("Domain.ItemDonacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("DonacionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DonacionId");
+
+                    b.ToTable("ItemDonacion");
                 });
 
             modelBuilder.Entity("Domain.Nacionalidad", b =>
@@ -263,6 +308,13 @@ namespace Persistence.Migrations
                     b.HasOne("Domain.VoluntarioMedico", null)
                         .WithMany("Eventos")
                         .HasForeignKey("VoluntarioMedicoId");
+                });
+
+            modelBuilder.Entity("Domain.ItemDonacion", b =>
+                {
+                    b.HasOne("Domain.Donacion", null)
+                        .WithMany("Items")
+                        .HasForeignKey("DonacionId");
                 });
 #pragma warning restore 612, 618
         }

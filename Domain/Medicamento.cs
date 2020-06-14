@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Domain
 {
-    class Medicamento : ItemDonacion
+    public class Medicamento : ItemDonacion
     {
+        public DateTime Vencimiento { get; set; }
+        public string Lote { get; set; }
+
     }
 }
