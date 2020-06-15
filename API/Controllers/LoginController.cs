@@ -16,12 +16,14 @@ namespace API.Controllers
         private readonly IPacienteService _pacienteService;
         private readonly IVoluntarioBasicoService _voluntarioBasicoService;
         private readonly IVoluntarioMedicoService _voluntarioMedicoService;
+        private readonly IVoluntarioAsociacionService _voluntarioAsociacionService;
 
-        public LoginController(IPacienteService pacienteService, IVoluntarioBasicoService voluntarioBasicoService, IVoluntarioMedicoService voluntarioMedicoService)
+        public LoginController(IPacienteService pacienteService, IVoluntarioBasicoService voluntarioBasicoService, IVoluntarioMedicoService voluntarioMedicoService, IVoluntarioAsociacionService voluntarioAsociacionService)
         {
             _pacienteService = pacienteService;
             _voluntarioBasicoService = voluntarioBasicoService;
             _voluntarioMedicoService = voluntarioMedicoService;
+            _voluntarioAsociacionService = voluntarioAsociacionService;
         }
         
         [HttpGet("{correo}")]
@@ -31,6 +33,7 @@ namespace API.Controllers
                 Paciente p =  _pacienteService.Get(correo);
                 VoluntarioBasico vb =  _voluntarioBasicoService.Get(correo);
                 VoluntarioMedico vm =  _voluntarioMedicoService.Get(correo);
+                 VoluntarioAsociacion va = _voluntarioAsociacionService.Get(correo);
             if (p != null)
             {
                 v.idUser = p.Id;
@@ -48,6 +51,10 @@ namespace API.Controllers
                 v.idUser = vm.Id;
                 v.tipoUser = vm.TipoUsuarioId;
                 return Ok(v);
+            } else if (va != null) {
+                v.idUser = va.Id;
+                v.tipoUser = va.TipoUsuarioId;
+                return Ok(v);
             }
             else {
                 return Ok(null);
@@ -61,7 +68,7 @@ namespace API.Controllers
             Paciente p =  _pacienteService.Get(a.mail);
             VoluntarioBasico vb =  _voluntarioBasicoService.Get(a.mail);
             VoluntarioMedico vm =  _voluntarioMedicoService.Get(a.mail);
-
+            VoluntarioAsociacion va = _voluntarioAsociacionService.Get(a.mail);
             if (p != null) {
                 if (p.IdGoogle == null || p.IdGoogle.Equals("0"))
                 {
@@ -69,18 +76,25 @@ namespace API.Controllers
                     _pacienteService.Update(p);
                 }
                 l.inicio = 1;
-            } else if (vb!=null) {
+            } else if (vb != null) {
                 if (vb.IdGoogle == null || vb.IdGoogle.Equals("0")) {
                     vb.IdGoogle = a.idGoogle;
                     _voluntarioBasicoService.Update(vb);
                 }
                 l.inicio = 1;
             }
-            else if (vm!=null)
+            else if (vm != null)
             {
-                if (vm.IdGoogle==null || vm.IdGoogle.Equals("0")) {
+                if (vm.IdGoogle == null || vm.IdGoogle.Equals("0")) {
                     vm.IdGoogle = a.idGoogle;
                     _voluntarioMedicoService.Update(vm);
+                }
+                l.inicio = 1;
+            } else if (va != null)
+            {
+                if (va.IdGoogle == null || va.IdGoogle.Equals("0")) {
+                    va.IdGoogle = a.idGoogle;
+                    _voluntarioAsociacionService.Update(va);
                 }
                 l.inicio = 1;
             }

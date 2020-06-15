@@ -19,7 +19,7 @@ namespace Persistence
                         IdGoogle="",
                         Nombre = "testVolAso",
                         Apellido = "volAso",
-                        TipoUsuarioId = 2,
+                        TipoUsuarioId = 4,
                         Email = "vol.aso@gmail.com",
                         Genero = GeneroEnum.Masculino,
                          Dni = 38888888,
