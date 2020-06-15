@@ -11,6 +11,28 @@ namespace Persistence
     {
         public static void SeedData(DataContext context)
         {
+            if (!context.VoluntarioAsociacion.Any()) {
+                var volAso = new List<VoluntarioAsociacion>
+                {
+                    new VoluntarioAsociacion
+                    {
+                        IdGoogle="",
+                        Nombre = "testVolAso",
+                        Apellido = "volAso",
+                        TipoUsuarioId = 2,
+                        Email = "vol.aso@gmail.com",
+                        Genero = GeneroEnum.Masculino,
+                         Dni = 38888888,
+                          Telefono = "4444-4444",
+                        Edad = 20,
+                        NacionalidadId = 1,
+                        ProvinciaId=1                       
+                    }
+                };
+
+                context.VoluntarioAsociacion.AddRange(volAso);
+                context.SaveChanges();
+            }
             if (!context.VoluntariosBasicos.Any())
             {
                 var voluntariosBasicos = new List<VoluntarioBasico>
