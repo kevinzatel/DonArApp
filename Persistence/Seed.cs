@@ -14,23 +14,23 @@ namespace Persistence
             if (!context.VoluntariosBasicos.Any())
             {
                 var voluntariosBasicos = new List<VoluntarioBasico>
-                {
-                    new VoluntarioBasico
-                    {
-                        IdGoogle="",
-                        Nombre = "Charly",
-                        Apellido = "Mendez",
-                        TipoUsuarioId = 2,
-                        Email = "charly.magico@gmail.com",
-                        Genero = GeneroEnum.Masculino,
-                         Dni = 38888888,
-                          Telefono = "4444-4444",
-                        Edad = 20,
-                        NacionalidadId = 1,
-                        ProvinciaId=1,
-                        Eventos = new List<Evento>()
-                    }
-                };
+{
+new VoluntarioBasico
+{
+IdGoogle="",
+Nombre = "Charly",
+Apellido = "Mendez",
+TipoUsuarioId = 2,
+Email = "charly.magico@gmail.com",
+Genero = GeneroEnum.Masculino,
+Dni = 38888888,
+Telefono = "4444-4444",
+Edad = 20,
+NacionalidadId = 1,
+ProvinciaId=1,
+Eventos = new List<Evento>()
+}
+};
 
                 context.VoluntariosBasicos.AddRange(voluntariosBasicos);
                 context.SaveChanges();
@@ -46,20 +46,81 @@ namespace Persistence
                         Nombre = "Johnny",
                         Apellido = "Bravo",
                         TipoUsuarioId = 3,
-                         Email = "holanena@gmail.com",
-                          Genero = GeneroEnum.Masculino,
-                          Dni = 40000000,
-                           Telefono = "6666-6666",
+                        Email = "holanena@gmail.com",
+                        Genero = GeneroEnum.Masculino,
+                        Dni = 40000000,
+                        Telefono = "6666-6666",
                         Edad = 18,
                         NacionalidadId = 1,
                         ProvinciaId = 1,
-                          EspecialidadId = 1,
-                          Matricula = "1234",
-                          Seguro = "5678",
+                        EspecialidadId = 1,
+                        Matricula = "1234",
+                        Seguro = "5678",
+                        InicioJornada = "9:00:00",
+                        FinJornada = "13:00:00",
+                        Eventos = new List<Evento>()
+                    },
+                    new VoluntarioMedico
+                    {
+                        IdGoogle="",
+                        Nombre = "Pier",
+                        Apellido = "Nodoyuna",
+                        TipoUsuarioId = 3,
+                        Email = "holanena@gmail.com",
+                        Genero = GeneroEnum.Masculino,
+                        Dni = 40000001,
+                        Telefono = "6666-6666",
+                        Edad = 18,
+                        NacionalidadId = 1,
+                        ProvinciaId = 1,
+                        EspecialidadId = 2,
+                        Matricula = "1235",
+                        Seguro = "5678",
+                        InicioJornada = "9:00:00",
+                        FinJornada = "13:00:00",
+                        Eventos = new List<Evento>()
+                    },
+                    new VoluntarioMedico
+                    {
+                        IdGoogle="",
+                        Nombre = "Huckleberry",
+                        Apellido = "Hound",
+                        TipoUsuarioId = 3,
+                        Email = "holanena@gmail.com",
+                        Genero = GeneroEnum.Masculino,
+                        Dni = 40000002,
+                        Telefono = "6666-6666",
+                        Edad = 18,
+                        NacionalidadId = 1,
+                        ProvinciaId = 1,
+                        EspecialidadId = 3,
+                        Matricula = "1235",
+                        Seguro = "5678",
+                        InicioJornada = "9:00:00",
+                        FinJornada = "13:00:00",
+                        Eventos = new List<Evento>()
+                    },
+                    new VoluntarioMedico
+                    {
+                        IdGoogle="",
+                        Nombre = "Tom",
+                        Apellido = "Cat",
+                        TipoUsuarioId = 3,
+                        Email = "buscandoajerry@gmail.com",
+                        Genero = GeneroEnum.Masculino,
+                        Dni = 40000000,
+                        Telefono = "6666-6666",
+                        Edad = 18,
+                        NacionalidadId = 1,
+                        ProvinciaId = 1,
+                        EspecialidadId = 4,
+                        Matricula = "1237",
+                        Seguro = "5678",
                         InicioJornada = "9:00:00",
                         FinJornada = "13:00:00",
                         Eventos = new List<Evento>()
                     }
+
                 };
 
                 context.VoluntariosMedicos.AddRange(voluntariosMedicos);
@@ -69,24 +130,24 @@ namespace Persistence
             if (!context.Pacientes.Any())
             {
                 var pacientes = new List<Paciente>
-                    {
-                        new Paciente
-                        {
-                            IdGoogle = null,
-                            Nombre = "Roni",
-                            Apellido = "JL",
-                            TipoUsuarioId = 1,
-                            Email = "juventud1@live.com.ar",
-                            Genero = GeneroEnum.Masculino,
-                            Dni = 42222222,
-                            Telefono = "8888-8888",
-                            Edad = 28,
-                            NacionalidadId = 1,
-                            ProvinciaId = 1,
-                            HistorialClinico = "historial clinico"
-                            
-                        }
-                    };
+{
+new Paciente
+{
+IdGoogle = null,
+Nombre = "Roni",
+Apellido = "JL",
+TipoUsuarioId = 1,
+Email = "juventud1@live.com.ar",
+Genero = GeneroEnum.Masculino,
+Dni = 42222222,
+Telefono = "8888-8888",
+Edad = 28,
+NacionalidadId = 1,
+ProvinciaId = 1,
+HistorialClinico = "historial clinico"
+
+}
+};
                 context.Pacientes.AddRange(pacientes);
                 context.SaveChanges();
             }
@@ -94,28 +155,28 @@ namespace Persistence
             if (!context.TiposUsuarios.Any())
             {
                 var tiposUsuarios = new List<TipoUsuario>
-                    {
-                        new TipoUsuario
-                        {
-                            Id= 1,
-                            Nombre = "Paciente"
-                        },
-                        new TipoUsuario
-                        {
-                            Id= 2,
-                            Nombre = "Voluntario Basico"
-                        },
-                        new TipoUsuario
-                        {
-                            Id= 3,
-                            Nombre = "Voluntario Medico"
-                        },
-                        new TipoUsuario
-                        {
-                            Id= 4,
-                            Nombre = "Voluntario Asociacion"
-                        },
-                    };
+{
+new TipoUsuario
+{
+Id= 1,
+Nombre = "Paciente"
+},
+new TipoUsuario
+{
+Id= 2,
+Nombre = "Voluntario"
+},
+new TipoUsuario
+{
+Id= 3,
+Nombre = "Medico"
+},
+new TipoUsuario
+{
+Id= 4,
+Nombre = "Asociacion"
+},
+};
                 context.TiposUsuarios.AddRange(tiposUsuarios);
                 context.SaveChanges();
             }
@@ -123,24 +184,24 @@ namespace Persistence
             if (!context.Especialidades.Any())
             {
                 var especialidades = new List<Especialidad>
-                    {
-                        new Especialidad
-                        {
-                            Nombre = "ATENCION PRIMARIA"
-                        },
-                        new Especialidad
-                        {
-                            Nombre = "CARDIOLOGIA"
-                        },
-                        new Especialidad
-                        {
-                            Nombre = "CIRUGÍA"
-                        },
-                        new Especialidad
-                        {
-                            Nombre = "CLÍNICA"
-                        },
-                    };
+{
+new Especialidad
+{
+Nombre = "ATENCION PRIMARIA"
+},
+new Especialidad
+{
+Nombre = "CARDIOLOGIA"
+},
+new Especialidad
+{
+Nombre = "CIRUGÍA"
+},
+new Especialidad
+{
+Nombre = "CLÍNICA"
+},
+};
                 context.Especialidades.AddRange(especialidades);
                 context.SaveChanges();
             }
@@ -148,24 +209,24 @@ namespace Persistence
             if (!context.Nacionalidades.Any())
             {
                 var nacionalidades = new List<Nacionalidad>
-                    {
-                        new Nacionalidad
-                        {
-                            Nombre = "Argentina"
-                        },
-                        new Nacionalidad
-                        {
-                            Nombre = "Holanda"
-                        },
-                        new Nacionalidad
-                        {
-                            Nombre = "Turquia"
-                        },
-                        new Nacionalidad
-                        {
-                            Nombre = "Nigeria"
-                        },
-                    };
+{
+new Nacionalidad
+{
+Nombre = "Argentina"
+},
+new Nacionalidad
+{
+Nombre = "Holanda"
+},
+new Nacionalidad
+{
+Nombre = "Turquia"
+},
+new Nacionalidad
+{
+Nombre = "Nigeria"
+},
+};
                 context.Nacionalidades.AddRange(nacionalidades);
                 context.SaveChanges();
             }
@@ -173,24 +234,24 @@ namespace Persistence
             if (!context.Provincias.Any())
             {
                 var provincias = new List<Provincia>
-                    {
-                        new Provincia
-                        {
-                            Nombre = "Buenos Aires"
-                        },
-                        new Provincia
-                        {
-                            Nombre = "Chaco"
-                        },
-                        new Provincia
-                        {
-                            Nombre = "Misiones"
-                        },
-                        new Provincia
-                        {
-                            Nombre = "Tucuman"
-                        },
-                    };
+{
+new Provincia
+{
+Nombre = "Buenos Aires"
+},
+new Provincia
+{
+Nombre = "Chaco"
+},
+new Provincia
+{
+Nombre = "Misiones"
+},
+new Provincia
+{
+Nombre = "Tucuman"
+},
+};
                 context.Provincias.AddRange(provincias);
                 context.SaveChanges();
             }
@@ -198,16 +259,16 @@ namespace Persistence
             if (!context.Eventos.Any())
             {
                 var eventos = new List<Evento>
-                    {
-                        new Evento
-                        {
-                            PacienteId = 1,
-                            Estado = EstadoEventoEnum.PENDIENTE,
-                            Fecha = "1/1/2020",
-                            Sintomas = "unos sintomas",
-                            VoluntarioBasicoId = 1
-                        }
-                    };
+{
+new Evento
+{
+PacienteId = 1,
+Estado = EstadoEventoEnum.PENDIENTE,
+Fecha = "1/1/2020",
+Sintomas = "unos sintomas",
+VoluntarioBasicoId = 1
+}
+};
                 context.Eventos.AddRange(eventos);
                 context.SaveChanges();
             }
