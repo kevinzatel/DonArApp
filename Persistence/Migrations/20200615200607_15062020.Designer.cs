@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200607234828_User")]
-    partial class User
+    [Migration("20200615200607_15062020")]
+    partial class _15062020
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -164,6 +164,50 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TiposUsuarios");
+                });
+
+            modelBuilder.Entity("Domain.VoluntarioAsociacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Apellido")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Dni")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Edad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Genero")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NacionalidadId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ProvinciaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("TipoUsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VoluntarioAsociacion");
                 });
 
             modelBuilder.Entity("Domain.VoluntarioBasico", b =>

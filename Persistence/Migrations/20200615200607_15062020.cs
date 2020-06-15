@@ -2,7 +2,7 @@
 
 namespace Persistence.Migrations
 {
-    public partial class User : Migration
+    public partial class _15062020 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -80,6 +80,29 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TiposUsuarios", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VoluntarioAsociacion",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IdGoogle = table.Column<string>(nullable: true),
+                    Nombre = table.Column<string>(nullable: true),
+                    Apellido = table.Column<string>(nullable: true),
+                    TipoUsuarioId = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Genero = table.Column<int>(nullable: false),
+                    Dni = table.Column<int>(nullable: false),
+                    Telefono = table.Column<string>(nullable: true),
+                    Edad = table.Column<int>(nullable: false),
+                    NacionalidadId = table.Column<int>(nullable: false),
+                    ProvinciaId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VoluntarioAsociacion", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -197,6 +220,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "TiposUsuarios");
+
+            migrationBuilder.DropTable(
+                name: "VoluntarioAsociacion");
 
             migrationBuilder.DropTable(
                 name: "VoluntariosBasicos");

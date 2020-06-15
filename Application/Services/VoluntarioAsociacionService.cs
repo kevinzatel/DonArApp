@@ -1,5 +1,4 @@
-﻿using Application.Interfaces;
-using Domain;
+﻿using Domain;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services
+namespace Application.Voluntarios
 {
     public class VoluntarioAsociacionService : IVoluntarioAsociacionService
     {
