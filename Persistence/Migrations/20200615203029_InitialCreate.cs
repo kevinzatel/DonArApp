@@ -2,7 +2,7 @@
 
 namespace Persistence.Migrations
 {
-    public partial class _15062020 : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
