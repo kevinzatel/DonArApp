@@ -18,5 +18,6 @@ namespace Persistence
         public DbSet<Especialidad> Especialidades { get; set; }
         public DbSet<Nacionalidad> Nacionalidades { get; set; }
         public DbSet<Provincia> Provincias { get; set; }
+        public DbSet<VoluntarioAsociacion> VoluntarioAsociacion { get; set; }
     }
 }

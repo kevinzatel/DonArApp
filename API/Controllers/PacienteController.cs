@@ -22,7 +22,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<VoluntarioBasico>>> Get()
+        public async Task<ActionResult<IEnumerable<Paciente>>> Get()
         
         {
             var pacientes = await _pacienteService.List();
@@ -39,7 +39,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<VoluntarioBasico>> Get(int id)
+        public async Task<ActionResult<Paciente>> Get(int id)
         {
             var pacientes = await _pacienteService.Get(id);
             return Ok(pacientes);
@@ -60,7 +60,7 @@ namespace API.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<Evento>> Update(Paciente paciente)
+        public async Task<ActionResult<Paciente>> Update(Paciente paciente)
         {
             var pacienteUpdateado = await _pacienteService.Update(paciente);
             return Ok(pacienteUpdateado);
