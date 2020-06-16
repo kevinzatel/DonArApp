@@ -7,6 +7,23 @@ namespace Persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Donaciones",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Detalle = table.Column<string>(nullable: true),
+                    Cantidad = table.Column<int>(nullable: false),
+                    FechaVencimiento = table.Column<string>(nullable: true),
+                    Destino = table.Column<string>(nullable: true),
+                    IdUsuario = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Donaciones", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Especialidades",
                 columns: table => new
                 {
@@ -203,6 +220,9 @@ namespace Persistence.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Donaciones");
+
             migrationBuilder.DropTable(
                 name: "Especialidades");
 
