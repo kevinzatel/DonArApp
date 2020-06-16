@@ -9,7 +9,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200616050629_InitialCreate")]
+    [Migration("20200616214910_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,6 +64,12 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Detalle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("DiagnosticoPresuntivo")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int?>("EspecialidadId")
                         .HasColumnType("INTEGER");
 
@@ -76,11 +82,11 @@ namespace Persistence.Migrations
                     b.Property<int>("PacienteId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Seguimiento")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Sintomas")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("TratamientoFarmacologico")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("VoluntarioBasicoId")
                         .HasColumnType("INTEGER");
@@ -135,17 +141,20 @@ namespace Persistence.Migrations
                     b.Property<string>("HistorialClinico")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("NacionalidadId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("ProvinciaId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TerminosyCondiciones")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoUsuarioId")
                         .HasColumnType("INTEGER");
@@ -183,6 +192,50 @@ namespace Persistence.Migrations
                     b.ToTable("TiposUsuarios");
                 });
 
+            modelBuilder.Entity("Domain.VoluntarioAsociacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Apellido")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Dni")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Edad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Genero")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NacionalidadId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ProvinciaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("TipoUsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VoluntarioAsociacion");
+                });
+
             modelBuilder.Entity("Domain.VoluntarioBasico", b =>
                 {
                     b.Property<int>("Id")
@@ -204,17 +257,20 @@ namespace Persistence.Migrations
                     b.Property<int>("Genero")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("NacionalidadId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("ProvinciaId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TerminosyCondiciones")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoUsuarioId")
                         .HasColumnType("INTEGER");
@@ -251,6 +307,9 @@ namespace Persistence.Migrations
                     b.Property<int>("Genero")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("InicioJornada")
                         .HasColumnType("TEXT");
 
@@ -263,14 +322,14 @@ namespace Persistence.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("ProvinciaId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Seguro")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("TerminosyCondiciones")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoUsuarioId")
                         .HasColumnType("INTEGER");

@@ -1,8 +1,10 @@
-﻿using Domain;
+﻿using Application.Dto;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,24 @@ namespace Application.Voluntarios
             return pacientes;
         }
 
+        public async Task<List<PacienteDto>> ObtenerPacientesDto()
+        {
+            var pacientesDto = new List<PacienteDto>();
+            var pacientes = await List();
+            foreach (var paciente in pacientes)
+            {
+                var pacienteDto = new PacienteDto()
+                {
+                    Id = paciente.Id,
+                    Nombre = paciente.Nombre,
+                    Apellido = paciente.Apellido
+                };
+                pacientesDto.Add(pacienteDto);
+            }
+
+            return pacientesDto;
+        }
+
         public async Task<Paciente> Get(int id)
         {
             var pacientes = await _context.Pacientes.FindAsync(id);
@@ -36,10 +56,18 @@ namespace Application.Voluntarios
             _context.SaveChanges();
         }
 
-        public async Task<Paciente> Get(string correo) 
+        public Paciente Get(string correo) 
         {
-            var paciente = await _context.Pacientes.FirstOrDefaultAsync(x=>x.Email.Equals(correo));
+            var paciente = _context.Pacientes.FirstOrDefault(x=>x.Email.Equals(correo));
             return paciente;
         }
+
+        public async Task<Paciente> Update(Paciente paciente)
+        {
+            _context.Pacientes.Update(paciente);
+            _context.SaveChanges();
+            return paciente;
+        }
+
     }
 }

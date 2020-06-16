@@ -52,18 +52,53 @@ namespace API.Controllers
             return Ok(eventoDto);
         }
 
-        [Route("eventosporvoluntario/{id}")]
-        public async Task<ActionResult<List<Evento>>> ListEventosByVoluntarioId(int id)
+        [Route("eventosporvoluntariobasico/{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosByVoluntarioBasicoId(int id)
         {
-            var eventos = await _eventoService.ListEventosByVoluntarioId(id);
+            var eventos = await _eventoService.ListEventosByVoluntarioBasicoId(id);
             return Ok(eventos);
         }
 
-        [Route("eventosdtoporvoluntario/{id}")]
-        public async Task<ActionResult<List<Evento>>> ListEventosDtoByVoluntarioId(int id)
+        [Route("eventosporvoluntariomedico/{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosByVoluntarioMedicoId(int id)
         {
-            var eventosDto = await _eventoService.ListEventosDtoByVoluntarioId(id);
+            var eventos = await _eventoService.ListEventosByVoluntarioMedicoId(id);
+            return Ok(eventos);
+        }
+
+        [Route("eventosdtoporvoluntariobasico/{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosDtoByVoluntarioBasicoId(int id)
+        {
+            var eventosDto = await _eventoService.ListEventosDtoByVoluntarioBasicoId(id);
             return Ok(eventosDto);
+        }
+
+        [Route("eventosdtoporvoluntariomedico/{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosDtoByVoluntarioMedicoId(int id)
+        {
+            var eventosDto = await _eventoService.ListEventosDtoByVoluntarioMedicoId(id);
+            return Ok(eventosDto);
+        }
+
+        [Route("eventosporpaciente/{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosByPacienteId(int id)
+        {
+            var eventos = await _eventoService.ListEventosByPacienteId(id);
+            return Ok(eventos);
+        }
+
+        [Route("eventosdtoporpaciente/{id}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosDtoByPacienteId(int id)
+        {
+            var eventosDto = await _eventoService.ListEventosDtoByPacienteId(id);
+            return Ok(eventosDto);
+        }
+
+        [Route("eventosporemailpaciente/{email}")]
+        public async Task<ActionResult<List<Evento>>> ListEventosDtoByPacienteEmail(string email)
+        {
+            var eventos = await _eventoService.ListEventosByPacienteEmail(email);
+            return Ok(eventos);
         }
 
         [HttpPost]

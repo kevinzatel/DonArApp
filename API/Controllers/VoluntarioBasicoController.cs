@@ -39,8 +39,22 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult> Add(VoluntarioBasico voluntarioBasico)
         {
-            await _voluntarioService.Add(voluntarioBasico);
-            return Ok();
+            var vb = _voluntarioService.Get(voluntarioBasico.Email);
+            if (vb == null)
+            {
+                await _voluntarioService.Add(voluntarioBasico);
+                return Ok(voluntarioBasico.Id);
+            }
+            else
+            {
+                return Ok(null);
+            }
+        }
+        [HttpPut]
+        public async Task<ActionResult<VoluntarioBasico>> Update(VoluntarioBasico vb)
+        {
+            var vbUpdateado = await _voluntarioService.Update(vb);
+            return Ok(vbUpdateado);
         }
     }
 }

@@ -74,17 +74,61 @@ namespace Application.Voluntarios
             return eventosDto;
         }
 
-        public async Task<List<Evento>> ListEventosByVoluntarioId(int id)
+        public async Task<List<Evento>> ListEventosByVoluntarioBasicoId(int id)
         {
-            var eventos = await _context.Eventos.Where(e => e.VoluntarioBasicoId == id || e.VoluntarioMedicoId == id).ToListAsync();
+            var eventos = await _context.Eventos.Where(e => e.VoluntarioBasicoId == id).ToListAsync();
             return eventos;
         }
 
-        public async Task<List<EventoDto>> ListEventosDtoByVoluntarioId(int id)
+        public async Task<List<Evento>> ListEventosByVoluntarioMedicoId(int id)
+        {
+            var eventos = await _context.Eventos.Where(e => e.VoluntarioMedicoId == id).ToListAsync();
+            return eventos;
+        }
+
+        public async Task<List<Evento>> ListEventosByPacienteId(int id)
+        {
+            var eventos = await _context.Eventos.Where(e => e.PacienteId == id).ToListAsync();
+            return eventos;
+        }
+
+        public async Task<List<EventoDto>> ListEventosDtoByVoluntarioBasicoId(int id)
         {
             var eventosDto = new List<EventoDto>();
-            var eventosDeVoluntario = await ListEventosByVoluntarioId(id);
+            var eventosDeVoluntario = await ListEventosByVoluntarioBasicoId(id);
             foreach (var evento in eventosDeVoluntario)
+            {
+                var eventoDto = await GetDto(evento.Id);
+                eventosDto.Add(eventoDto);
+            }
+            return eventosDto;
+        }
+
+        public async Task<List<EventoDto>> ListEventosDtoByVoluntarioMedicoId(int id)
+        {
+            var eventosDto = new List<EventoDto>();
+            var eventosDeVoluntario = await ListEventosByVoluntarioMedicoId(id);
+            foreach (var evento in eventosDeVoluntario)
+            {
+                var eventoDto = await GetDto(evento.Id);
+                eventosDto.Add(eventoDto);
+            }
+            return eventosDto;
+        }
+
+        public async Task<List<Evento>> ListEventosByPacienteEmail(string email)
+        {
+            var paciente = await _context.Pacientes.Where(p => p.Email == email).FirstOrDefaultAsync();
+            if (paciente == null) throw new Exception("No se encontró ningún paciente con el email ingresado.");
+            var eventos = await ListEventosByPacienteId(paciente.Id);
+            return eventos;
+        }
+
+        public async Task<List<EventoDto>> ListEventosDtoByPacienteId(int id)
+        {
+            var eventosDto = new List<EventoDto>();
+            var eventosDePaciente = await ListEventosByPacienteId(id);
+            foreach (var evento in eventosDePaciente)
             {
                 var eventoDto = await GetDto(evento.Id);
                 eventosDto.Add(eventoDto);
@@ -132,12 +176,6 @@ namespace Application.Voluntarios
 
         public async Task<Evento> Update(Evento evento)
         {
-            var voluntarioId = await _voluntarioMedicoService.ObtenerMedicoDisponible(evento.EspecialidadId.Value);
-            if(voluntarioId != -1)
-            {
-                evento.VoluntarioMedicoId = voluntarioId;
-                evento.VoluntarioBasicoId = null;
-            }
             _context.Eventos.Update(evento);
             _context.SaveChanges();
             return evento;

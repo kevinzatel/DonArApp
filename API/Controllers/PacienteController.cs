@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Application.Voluntarios;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Persistence;
 
 namespace API.Controllers
 {
@@ -22,15 +20,24 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<VoluntarioBasico>>> Get()
+        public async Task<ActionResult<IEnumerable<Paciente>>> Get()
         
         {
             var pacientes = await _pacienteService.List();
             return Ok(pacientes);
         }
 
+        [HttpGet]
+        [Route("obtenerpacientesdto")]
+        public async Task<ActionResult<IEnumerable<VoluntarioBasico>>> ObtenerPacientesDto()
+
+        {
+            var pacientes = await _pacienteService.ObtenerPacientesDto();
+            return Ok(pacientes);
+        }
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<VoluntarioBasico>> Get(int id)
+        public async Task<ActionResult<Paciente>> Get(int id)
         {
             var pacientes = await _pacienteService.Get(id);
             return Ok(pacientes);
@@ -39,8 +46,22 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult> Add(Paciente paciente)
         {
-            await _pacienteService.Add(paciente);
-            return Ok();
+            var p = _pacienteService.Get(paciente.Email);
+            if (p == null)
+            {
+                await _pacienteService.Add(paciente);
+                return Ok(paciente.Id);
+            }
+            else {
+                return Ok(null);
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Paciente>> Update(Paciente paciente)
+        {
+            var pacienteUpdateado = await _pacienteService.Update(paciente);
+            return Ok(pacienteUpdateado);
         }
     }
 }

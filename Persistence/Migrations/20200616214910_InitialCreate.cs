@@ -55,16 +55,17 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Email = table.Column<string>(nullable: true),
-                    TipoUsuarioId = table.Column<int>(nullable: false),
-                    Genero = table.Column<int>(nullable: false),
+                    IdGoogle = table.Column<string>(nullable: true),
                     Nombre = table.Column<string>(nullable: true),
                     Apellido = table.Column<string>(nullable: true),
+                    TipoUsuarioId = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Genero = table.Column<int>(nullable: false),
                     Dni = table.Column<int>(nullable: false),
-                    Edad = table.Column<int>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),
+                    Edad = table.Column<int>(nullable: false),
                     NacionalidadId = table.Column<int>(nullable: false),
-                    TerminosyCondiciones = table.Column<bool>(nullable: false),
+                    ProvinciaId = table.Column<int>(nullable: false),
                     HistorialClinico = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -99,21 +100,45 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "VoluntarioAsociacion",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IdGoogle = table.Column<string>(nullable: true),
+                    Nombre = table.Column<string>(nullable: true),
+                    Apellido = table.Column<string>(nullable: true),
+                    TipoUsuarioId = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Genero = table.Column<int>(nullable: false),
+                    Dni = table.Column<int>(nullable: false),
+                    Telefono = table.Column<string>(nullable: true),
+                    Edad = table.Column<int>(nullable: false),
+                    NacionalidadId = table.Column<int>(nullable: false),
+                    ProvinciaId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VoluntarioAsociacion", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "VoluntariosBasicos",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Email = table.Column<string>(nullable: true),
-                    TipoUsuarioId = table.Column<int>(nullable: false),
-                    Genero = table.Column<int>(nullable: false),
+                    IdGoogle = table.Column<string>(nullable: true),
                     Nombre = table.Column<string>(nullable: true),
                     Apellido = table.Column<string>(nullable: true),
+                    TipoUsuarioId = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Genero = table.Column<int>(nullable: false),
                     Dni = table.Column<int>(nullable: false),
-                    Edad = table.Column<int>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),
+                    Edad = table.Column<int>(nullable: false),
                     NacionalidadId = table.Column<int>(nullable: false),
-                    TerminosyCondiciones = table.Column<bool>(nullable: false)
+                    ProvinciaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -126,16 +151,17 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Email = table.Column<string>(nullable: true),
-                    TipoUsuarioId = table.Column<int>(nullable: false),
-                    Genero = table.Column<int>(nullable: false),
+                    IdGoogle = table.Column<string>(nullable: true),
                     Nombre = table.Column<string>(nullable: true),
                     Apellido = table.Column<string>(nullable: true),
+                    TipoUsuarioId = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Genero = table.Column<int>(nullable: false),
                     Dni = table.Column<int>(nullable: false),
-                    Edad = table.Column<int>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),
+                    Edad = table.Column<int>(nullable: false),
                     NacionalidadId = table.Column<int>(nullable: false),
-                    TerminosyCondiciones = table.Column<bool>(nullable: false),
+                    ProvinciaId = table.Column<int>(nullable: false),
                     EspecialidadId = table.Column<int>(nullable: false),
                     Matricula = table.Column<string>(nullable: true),
                     Seguro = table.Column<string>(nullable: true),
@@ -157,10 +183,12 @@ namespace Persistence.Migrations
                     Estado = table.Column<int>(nullable: false),
                     Sintomas = table.Column<string>(nullable: true),
                     Fecha = table.Column<string>(nullable: true),
-                    Seguimiento = table.Column<bool>(nullable: false),
                     EspecialidadId = table.Column<int>(nullable: true),
                     VoluntarioBasicoId = table.Column<int>(nullable: true),
-                    VoluntarioMedicoId = table.Column<int>(nullable: true)
+                    VoluntarioMedicoId = table.Column<int>(nullable: true),
+                    DiagnosticoPresuntivo = table.Column<bool>(nullable: false),
+                    TratamientoFarmacologico = table.Column<bool>(nullable: false),
+                    Detalle = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -212,6 +240,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "TiposUsuarios");
+
+            migrationBuilder.DropTable(
+                name: "VoluntarioAsociacion");
 
             migrationBuilder.DropTable(
                 name: "VoluntariosBasicos");
