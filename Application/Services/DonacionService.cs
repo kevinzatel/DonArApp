@@ -1,9 +1,10 @@
 ﻿using Domain;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using System;
+using QRCoder;
 using System.Collections.Generic;
-using System.Text;
+using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Application.Voluntarios
@@ -32,9 +33,16 @@ namespace Application.Voluntarios
         }
 
 
+
         public async Task<List<Donacion>> List()
         {
             var donaciones = await _context.Donaciones.ToListAsync();
+            return donaciones;
+        }
+
+        public async Task<List<Donacion>> ListDonacionesByUserId(int id)
+        {
+            var donaciones = await _context.Donaciones.Where(d => d.IdUsuario == id).ToListAsync();
             return donaciones;
         }
 

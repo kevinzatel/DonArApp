@@ -12,10 +12,11 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    FechaIngreso = table.Column<string>(nullable: true),
-                    FechaEgreso = table.Column<string>(nullable: true),
-                    Estado = table.Column<string>(nullable: true),
-                    IdDestinatario = table.Column<int>(nullable: false)
+                    Detalle = table.Column<string>(nullable: true),
+                    Cantidad = table.Column<int>(nullable: false),
+                    FechaVencimiento = table.Column<string>(nullable: true),
+                    Destino = table.Column<string>(nullable: true),
+                    IdUsuario = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -147,27 +148,6 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ItemDonacion",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Nombre = table.Column<string>(nullable: true),
-                    Cantidad = table.Column<int>(nullable: false),
-                    DonacionId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ItemDonacion", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ItemDonacion_Donaciones_DonacionId",
-                        column: x => x.DonacionId,
-                        principalTable: "Donaciones",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Eventos",
                 columns: table => new
                 {
@@ -208,23 +188,18 @@ namespace Persistence.Migrations
                 name: "IX_Eventos_VoluntarioMedicoId",
                 table: "Eventos",
                 column: "VoluntarioMedicoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ItemDonacion_DonacionId",
-                table: "ItemDonacion",
-                column: "DonacionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Donaciones");
+
+            migrationBuilder.DropTable(
                 name: "Especialidades");
 
             migrationBuilder.DropTable(
                 name: "Eventos");
-
-            migrationBuilder.DropTable(
-                name: "ItemDonacion");
 
             migrationBuilder.DropTable(
                 name: "Nacionalidades");
@@ -243,9 +218,6 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "VoluntariosMedicos");
-
-            migrationBuilder.DropTable(
-                name: "Donaciones");
         }
     }
 }

@@ -283,12 +283,12 @@ namespace Persistence
                         new Donacion
                         {
                             Id = 1,
-                            FechaIngreso = "12/04/2020",
-                            FechaEgreso = "13/04/2020",
-                            Estado = "Entregado",
-                            IdDestinatario = 1,
-                            Items = new List<ItemDonacion>()
-
+                            Detalle = "Leche en polvo",
+                            Cantidad = 2,
+                            FechaVencimiento = "12/12/2020",
+                            Destino = "Zapala",
+                            IdUsuario = 1
+                            
     }
                     };
                 context.Donaciones.AddRange(donaciones);

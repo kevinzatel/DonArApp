@@ -12,7 +12,9 @@ namespace Application.Voluntarios
     {
         Task<List<Donacion>> List();
         Task<Donacion> Get(int id);
+        Task<List<Donacion>> ListDonacionesByUserId(int id);
         Task Add(Donacion donacion);
+
     }
 
 }

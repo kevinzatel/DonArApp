@@ -41,9 +41,15 @@ namespace API.Controllers
         public async Task<ActionResult> Add(Donacion donacion)
         {
             await _donacionService.Add(donacion);
-            return Ok();
+            return Ok(donacion.Id);
         }
 
+        [Route("donacionesporusuario/{id}")]
+        public async Task<ActionResult<List<Donacion>>> ListDonacionesByUserId(int id)
+        {
+            var donaciones = await _donacionService.ListDonacionesByUserId(id);
+            return Ok(donaciones);
+        }
 
     }
 }
