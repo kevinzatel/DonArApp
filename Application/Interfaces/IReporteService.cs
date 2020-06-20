@@ -10,6 +10,6 @@ namespace Application.Voluntarios
     {
         Task<ReporteVoluntarios> GetReporteVoluntarios();
         Task<int[]> GetReporteRangoEtario();
-        
+        Task<ReporteGeneros> GetReporteGeneros();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System;
@@ -61,6 +62,39 @@ namespace Application.Voluntarios
             reporteRangoEtario[5] = pacientes.Where(p => p.Edad > 64).Count();
 
             return reporteRangoEtario;
+        }
+
+        public async Task<ReporteGeneros> GetReporteGeneros()
+        {
+            var pacientes = await _pacientenService.List();
+            var voluntariosBasicos = await _voluntarioService.List();
+            var voluntariosMedicos = await _voluntarioMedicoService.List();
+            var voluntariosAsociacion = await _voluntarioAsociacionService.List();
+            var reporteGeneros = new ReporteGeneros();
+            int fem = 0;
+            int masc = 0;
+            int otro = 0;
+            //Acumulador Fem
+            fem += pacientes.Count(x=> x.Genero==GeneroEnum.Femenino);
+            fem += voluntariosBasicos.Count(x=>x.Genero==GeneroEnum.Femenino);
+            fem += voluntariosMedicos.Count(x=>x.Genero==GeneroEnum.Femenino);
+            fem += voluntariosAsociacion.Count(x=>x.Genero==GeneroEnum.Femenino);
+            //Acumulador Masc
+            masc += pacientes.Count(x => x.Genero == GeneroEnum.Masculino);
+            masc += voluntariosBasicos.Count(x => x.Genero == GeneroEnum.Masculino);
+            masc += voluntariosMedicos.Count(x => x.Genero == GeneroEnum.Masculino);
+            masc += voluntariosAsociacion.Count(x => x.Genero == GeneroEnum.Masculino);
+            //Acumulador otro
+            otro += pacientes.Count(x => x.Genero == GeneroEnum.Tansgenero);
+            otro += voluntariosBasicos.Count(x => x.Genero == GeneroEnum.Tansgenero);
+            otro += voluntariosMedicos.Count(x => x.Genero == GeneroEnum.Tansgenero);
+            otro += voluntariosAsociacion.Count(x => x.Genero == GeneroEnum.Tansgenero);
+            
+            reporteGeneros.cantFemeninos = fem;
+              reporteGeneros.cantMasculinos = masc;
+              reporteGeneros.cantOtros = otro;
+            
+            return reporteGeneros;
         }
     }
 }

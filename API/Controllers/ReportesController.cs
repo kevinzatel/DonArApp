@@ -39,5 +39,13 @@ namespace API.Controllers
             var reporteRangoEtario = await _reporteService.GetReporteRangoEtario();
             return Ok(reporteRangoEtario);
         }
+
+        [Route("generos")]
+        [HttpGet]
+        public async Task<ActionResult<ReporteGeneros>> GetReporteGeneros()
+        {
+            var repGeneros = await _reporteService.GetReporteGeneros();
+            return Ok(repGeneros);
+        }
     }
 }
