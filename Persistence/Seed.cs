@@ -295,6 +295,24 @@ VoluntarioBasicoId = 1
                 context.SaveChanges();
             }
 
+            if (!context.Donaciones.Any())
+            {
+                var donaciones = new List<Donacion>
+                    {
+                        new Donacion
+                        {
+                            Id = 1,
+                            Detalle = "Leche en polvo",
+                            Cantidad = 2,
+                            FechaVencimiento = "12/12/2020",
+                            Destino = "Zapala",
+                            IdUsuario = 1
+                            
+    }
+                    };
+                context.Donaciones.AddRange(donaciones);
+                context.SaveChanges();
+            }
 
         }
     }

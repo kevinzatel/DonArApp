@@ -9,14 +9,40 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200615202212_15062020")]
-    partial class _15062020
+    [Migration("20200616214910_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.3");
+
+            modelBuilder.Entity("Domain.Donacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Destino")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Detalle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FechaVencimiento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Donaciones");
+                });
 
             modelBuilder.Entity("Domain.Especialidad", b =>
                 {
