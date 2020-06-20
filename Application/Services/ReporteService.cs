@@ -17,25 +17,35 @@ namespace Application.Voluntarios
         private readonly IVoluntarioMedicoService _voluntarioMedicoService;
         private readonly IVoluntarioAsociacionService _voluntarioAsociacionService;
         private readonly IPacienteService _pacientenService;
+        private readonly IEspecialidadService _especialidadService;
 
-        public ReporteService(DataContext context, IVoluntarioBasicoService voluntarioService, IVoluntarioMedicoService voluntarioMedicoService, IVoluntarioAsociacionService voluntarioAsociacionService, IPacienteService pacienteService)
+        public ReporteService(DataContext context, IVoluntarioBasicoService voluntarioService, IVoluntarioMedicoService voluntarioMedicoService, IVoluntarioAsociacionService voluntarioAsociacionService, IPacienteService pacienteService, IEspecialidadService especialidadService)
         {
             _context = context;
             _voluntarioService = voluntarioService;
             _voluntarioMedicoService = voluntarioMedicoService;
             _voluntarioAsociacionService = voluntarioAsociacionService;
             _pacientenService = pacienteService;
+            _especialidadService = especialidadService;
         }
 
         public async Task<ReporteVoluntarios> GetReporteVoluntarios()
         {
             var reporteVoluntarios = new ReporteVoluntarios();
+            reporteVoluntarios.MedicosPorEspecialidad = new Dictionary<string, int>();
             var voluntariosBasicos = await _voluntarioService.List();
             var voluntariosMedicos = await _voluntarioMedicoService.List();
             var voluntariosAsociacion = await _voluntarioAsociacionService.List();
             reporteVoluntarios.CantVoluntariosBasicos = voluntariosBasicos.Count();
             reporteVoluntarios.CantVoluntariosMedicos = voluntariosMedicos.Count();
             reporteVoluntarios.CantVoluntariosAsociacion = voluntariosAsociacion.Count();
+            var especialidades = await _especialidadService.List();
+            foreach (var especialidad in especialidades)
+            {
+                var medicosPorEspecialidad = voluntariosMedicos.Where(m => m.EspecialidadId == especialidad.Id).Count();
+                reporteVoluntarios.MedicosPorEspecialidad.Add(especialidad.Nombre, medicosPorEspecialidad);
+            }
+            
             return reporteVoluntarios;
         }
 
