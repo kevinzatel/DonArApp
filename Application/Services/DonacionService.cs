@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using QRCoder;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Application.Voluntarios
     public class DonacionService : IDonacionService
     {
         private readonly DataContext _context;
-
+        
 
         public DonacionService(DataContext context)
         {
@@ -22,6 +23,21 @@ namespace Application.Voluntarios
         public async Task Add(Donacion donacion)
         {
             await _context.Donaciones.AddAsync(donacion);
+            _context.SaveChanges();
+            
+            HistoricoDonacion historicoDonacion = new HistoricoDonacion
+            {
+                IdDonacion = donacion.Id,
+                Detalle = donacion.Detalle,
+                Cantidad = donacion.Cantidad,
+                Destino = donacion.Destino,
+                FechaVencimiento = donacion.FechaVencimiento,
+                IdUsuario = donacion.IdUsuario,
+                Estado = donacion.Estado,
+                Fecha = DateTime.Now
+            };
+
+            await _context.HistoricoDonaciones.AddAsync(historicoDonacion);
             _context.SaveChanges();
         }
 
@@ -44,6 +60,33 @@ namespace Application.Voluntarios
         {
             var donaciones = await _context.Donaciones.Where(d => d.IdUsuario == id).ToListAsync();
             return donaciones;
+        }
+
+        public async Task<List<HistoricoDonacion>> ListHistoricoDonacionById(int id)
+        {
+            var historicoDonacion = await _context.HistoricoDonaciones.Where(d => d.IdDonacion == id).ToListAsync();
+            return historicoDonacion;
+        }
+        public async Task<Donacion> Update(Donacion donacion)
+        {
+            _context.Donaciones.Update(donacion);
+            _context.SaveChanges();
+
+            HistoricoDonacion historicoDonacion = new HistoricoDonacion
+            {
+                IdDonacion = donacion.Id,
+                Detalle = donacion.Detalle,
+                Cantidad = donacion.Cantidad,
+                Destino = donacion.Destino,
+                FechaVencimiento = donacion.FechaVencimiento,
+                IdUsuario = donacion.IdUsuario,
+                Estado = donacion.Estado,
+                Fecha = DateTime.Now
+            };
+
+            await _context.HistoricoDonaciones.AddAsync(historicoDonacion);
+            _context.SaveChanges();
+            return donacion;
         }
 
     }

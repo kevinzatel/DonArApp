@@ -14,6 +14,8 @@ namespace Application.Voluntarios
         Task<Donacion> Get(int id);
         Task<List<Donacion>> ListDonacionesByUserId(int id);
         Task Add(Donacion donacion);
+        Task<Donacion> Update(Donacion donacion);
+        Task<List<HistoricoDonacion>> ListHistoricoDonacionById(int id);
 
     }
 
