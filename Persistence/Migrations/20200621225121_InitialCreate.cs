@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
@@ -16,7 +17,8 @@ namespace Persistence.Migrations
                     Cantidad = table.Column<int>(nullable: false),
                     FechaVencimiento = table.Column<string>(nullable: true),
                     Destino = table.Column<string>(nullable: true),
-                    IdUsuario = table.Column<int>(nullable: false)
+                    IdUsuario = table.Column<int>(nullable: false),
+                    Estado = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -34,6 +36,26 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Especialidades", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HistoricoDonaciones",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IdDonacion = table.Column<int>(nullable: false),
+                    Detalle = table.Column<string>(nullable: true),
+                    Cantidad = table.Column<int>(nullable: false),
+                    FechaVencimiento = table.Column<string>(nullable: true),
+                    Destino = table.Column<string>(nullable: true),
+                    IdUsuario = table.Column<int>(nullable: false),
+                    Estado = table.Column<string>(nullable: true),
+                    Fecha = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HistoricoDonaciones", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -228,6 +250,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Eventos");
+
+            migrationBuilder.DropTable(
+                name: "HistoricoDonaciones");
 
             migrationBuilder.DropTable(
                 name: "Nacionalidades");

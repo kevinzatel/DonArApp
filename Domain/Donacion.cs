@@ -10,10 +10,11 @@ namespace Domain
     public class Donacion
     {
         public int Id { get; set; }
-        public String Detalle { get; set; }
+        public string Detalle { get; set; }
         public int Cantidad { get; set; }
-        public String FechaVencimiento { get; set; }
-        public String Destino { get; set; }
+        public string FechaVencimiento { get; set; }
+        public string Destino { get; set; }
         public int IdUsuario { get; set; }
+        public string Estado { get; set; }
     }
 }

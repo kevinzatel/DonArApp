@@ -20,6 +20,7 @@ namespace Persistence
         public DbSet<Provincia> Provincias { get; set; }
         public DbSet<VoluntarioAsociacion> VoluntarioAsociacion { get; set; }
         public DbSet<Donacion> Donaciones { get; set; }
+        public DbSet<HistoricoDonacion> HistoricoDonaciones { get; set; }
 
     }
 }
