@@ -31,6 +31,9 @@ namespace Persistence.Migrations
                     b.Property<string>("Detalle")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Estado")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("FechaVencimiento")
                         .HasColumnType("TEXT");
 
@@ -99,6 +102,41 @@ namespace Persistence.Migrations
                     b.HasIndex("VoluntarioMedicoId");
 
                     b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("Domain.HistoricoDonacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Destino")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Detalle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FechaVencimiento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("IdDonacion")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HistoricoDonaciones");
                 });
 
             modelBuilder.Entity("Domain.Nacionalidad", b =>

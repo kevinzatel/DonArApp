@@ -47,8 +47,22 @@ namespace API.Controllers
         [Route("donacionesporusuario/{id}")]
         public async Task<ActionResult<List<Donacion>>> ListDonacionesByUserId(int id)
         {
-            var donaciones = await _donacionService.ListDonacionesByUserId(id);
+            List<Donacion> donaciones = await _donacionService.ListDonacionesByUserId(id);
             return Ok(donaciones);
+        }
+
+        [Route("historicodonacion/{id}")]
+        public async Task<ActionResult<List<HistoricoDonacion>>> ListHstoricoDonacion(int id)
+        {
+            List<HistoricoDonacion> historicoDonacion = await _donacionService.ListHistoricoDonacionById(id);
+            return Ok(historicoDonacion);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Donacion>> Update(Donacion donacion)
+        {
+            var donacionUpdateada = await _donacionService.Update(donacion);
+            return Ok(donacionUpdateada);
         }
 
     }
