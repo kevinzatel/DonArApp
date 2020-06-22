@@ -13,10 +13,16 @@ namespace API.Controllers
     public class PacienteController : ControllerBase
     {
         private readonly IPacienteService _pacienteService;
+        private readonly IVoluntarioBasicoService _voluntarioBasico;
+        private readonly IVoluntarioMedicoService _voluntarioMedico;
+        private readonly IVoluntarioAsociacionService _voluntarioAsociacion;
 
-        public PacienteController(IPacienteService pacienteService)
+        public PacienteController(IPacienteService pacienteService, IVoluntarioBasicoService voluntarioBasico, IVoluntarioMedicoService voluntarioMedico, IVoluntarioAsociacionService voluntarioAsociacion)
         {
             _pacienteService = pacienteService;
+            _voluntarioBasico = voluntarioBasico;
+            _voluntarioMedico = voluntarioMedico;
+            _voluntarioAsociacion = voluntarioAsociacion;
         }
 
         [HttpGet]
@@ -47,7 +53,10 @@ namespace API.Controllers
         public async Task<ActionResult> Add(Paciente paciente)
         {
             var p = _pacienteService.Get(paciente.Email);
-            if (p == null)
+            var vb = _voluntarioBasico.Get(paciente.Email);
+            var vm = _voluntarioMedico.Get(paciente.Email);
+            var va = _voluntarioAsociacion.Get(paciente.Email);
+            if (p == null && vb ==null && vm == null && va == null)
             {
                 await _pacienteService.Add(paciente);
                 return Ok(paciente.Id);
